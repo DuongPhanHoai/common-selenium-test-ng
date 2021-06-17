@@ -1,11 +1,21 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
+# Ignore project files
+.settings
+.gradle
+.classpath
+.project
+.idea
+
+*.iml
+
+# Ignore Gradle build output directory
+build
+.scannerwork
+tokens
+bin
+gradle
+target
+
+mvn clean deploy
+mvn nexus-staging:release
+mvn nexus-staging:drop
+/auto-core-lib/auto-core-lib.iml
