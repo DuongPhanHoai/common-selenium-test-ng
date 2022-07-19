@@ -8,7 +8,6 @@ import com.david.pfg.restapi.User;
 import com.david.test.core.BaseAPITest;
 
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 
 /**
  * Verify fist sample API test sample: - Extend the BaseAPITest - Apply the API Endpoint Question
