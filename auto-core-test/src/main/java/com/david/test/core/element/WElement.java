@@ -1,7 +1,6 @@
 package com.david.test.core.element;
 
 import java.util.List;
-import java.util.Objects;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -23,10 +22,11 @@ public class WElement extends Element implements WebElement {
 
     /**
      * Overide setBy to create instanceString more detail
+     *
      * @param by
      */
     public void setBy(By by) {
-        instanceString = String.format("%s[%s]",name,by);
+        instanceString = String.format("%s[%s]", name, by);
         super.setBy(by);
     }
 

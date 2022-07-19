@@ -36,4 +36,15 @@ public class API {
                 .extract()
                 .response();
     }
+
+    protected Response get() {
+        LOG.info("Get to {} with data {}", endPoint);
+        return given().spec(specification)
+                .when()
+                .get(endPoint)
+                .then()
+                .statusCode(200)
+                .extract()
+                .response();
+    }
 }

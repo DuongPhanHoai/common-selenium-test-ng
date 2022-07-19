@@ -24,4 +24,17 @@ public class LoginTests extends BaseWebTest {
         Assert.assertEquals(
                 true, loginPage.isLinkCustomersAppear(), "Verify logging-in successful");
     }
+
+    @Test
+    public void loginFailure() {
+
+        LoginPage loginPage = new LoginPage(getWebDriverManager());
+
+        // Login
+        loginPage.login(LOGIN_EMAIL, LOGIN_PWD + "1");
+
+        // Check If login success
+        Assert.assertEquals(
+                true, loginPage.isLoginFailMessageAppear(), "Verify logging-in failure");
+    }
 }

@@ -28,6 +28,9 @@ public class LoginPage extends Page {
     @FindBy(linkText = "Customers")
     WElement lnkCustomers;
 
+    @FindBy(xpath = "//*[contains(text(),'Unknown user or invalid password')]")
+    WElement iLoginFailMessage;
+
     public void login(String userName, String passWord) {
         try {
             driverManager.getDriver().get(PFG_LOGIN_ADDRESS);
@@ -42,5 +45,9 @@ public class LoginPage extends Page {
 
     public boolean isLinkCustomersAppear() {
         return lnkCustomers.isDisplayed();
+    }
+
+    public boolean isLoginFailMessageAppear() {
+        return iLoginFailMessage.isDisplayed();
     }
 }

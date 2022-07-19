@@ -1,6 +1,5 @@
 package com.david.test.core.driver;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Capabilities;

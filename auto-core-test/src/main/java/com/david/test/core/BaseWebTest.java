@@ -1,13 +1,10 @@
 package com.david.test.core;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
 
-import com.david.test.core.base.Page;
-import com.david.test.core.util.LogUtils;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -21,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
 
 import com.david.test.core.driver.WebDriverManager;
+import com.david.test.core.util.LogUtils;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
@@ -42,13 +40,13 @@ public abstract class BaseWebTest {
     @AfterMethod(alwaysRun = true)
     protected synchronized void baseAfterMethod() {
         if (Objects.nonNull(webDriverManager))
-        try {
-            webDriverManager.end();
-        } catch (NullPointerException npe) {
-            LOG.debug("Driver was null, not running driver quit & remove");
-        } catch (WebDriverException wde) {
-            LOG.debug("Driver was not available, not running driver quit & remove");
-        }
+            try {
+                webDriverManager.end();
+            } catch (NullPointerException npe) {
+                LOG.debug("Driver was null, not running driver quit & remove");
+            } catch (WebDriverException wde) {
+                LOG.debug("Driver was not available, not running driver quit & remove");
+            }
     }
 
     @AfterSuite(alwaysRun = true)
@@ -60,8 +58,7 @@ public abstract class BaseWebTest {
         if (browser.equalsIgnoreCase("chrome")) {
             try {
                 initChromeDriver();
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 LOG.error(LogUtils.getFullStack(e));
             }
         } else LOG.error("Support only Chrome Browser");

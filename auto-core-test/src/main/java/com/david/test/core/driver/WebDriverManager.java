@@ -1,12 +1,12 @@
 package com.david.test.core.driver;
 
-import com.david.test.core.BaseWebTest;
-import com.david.test.core.util.LogUtils;
+import java.io.IOException;
+
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
+import com.david.test.core.util.LogUtils;
 
 public class WebDriverManager extends DriverManager {
     protected static final Logger LOG = LoggerFactory.getLogger(WebDriverManager.class);
@@ -18,8 +18,7 @@ public class WebDriverManager extends DriverManager {
     public static void kill() {
         try {
             Runtime.getRuntime().exec("taskkill /im chromedriver.exe /f");
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             LOG.error(LogUtils.getFullStack(e));
         }
     }
