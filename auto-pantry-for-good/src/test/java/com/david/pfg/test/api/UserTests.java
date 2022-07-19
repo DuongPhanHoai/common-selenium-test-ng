@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.david.pfg.restapi.User;
+import com.david.pfg.test.props.ConfigReader;
 import com.david.test.core.BaseAPITest;
 
 import io.restassured.response.Response;
@@ -16,7 +17,7 @@ public class UserTests extends BaseAPITest {
 
     @Test
     public void getUserList() {
-        User user = new User(getSpecification());
+        User user = new User(getSpecification(ConfigReader.getServerInfo()));
 
         // ask a Question
         Response answerRes = user.list();

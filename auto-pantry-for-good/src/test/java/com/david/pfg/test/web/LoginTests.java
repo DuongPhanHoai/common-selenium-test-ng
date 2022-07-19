@@ -4,13 +4,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.david.pfg.page.LoginPage;
+import com.david.pfg.test.props.ConfigReader;
 import com.david.test.core.BaseWebTest;
+import com.david.test.core.dto.ServerInfo;
 
 /** Verify fist sample web test sample: - Login script */
 public class LoginTests extends BaseWebTest {
-
-    static final String LOGIN_EMAIL = "admin@example.com";
-    static final String LOGIN_PWD = "password";
+    ServerInfo serverInfo = ConfigReader.getServerInfo();
 
     @Test
     public void loginSuccessful() {
@@ -18,7 +18,7 @@ public class LoginTests extends BaseWebTest {
         LoginPage loginPage = new LoginPage(getWebDriverManager());
 
         // Login
-        loginPage.login(LOGIN_EMAIL, LOGIN_PWD);
+        loginPage.login(serverInfo);
 
         // Check If login success
         Assert.assertEquals(
@@ -31,7 +31,10 @@ public class LoginTests extends BaseWebTest {
         LoginPage loginPage = new LoginPage(getWebDriverManager());
 
         // Login
-        loginPage.login(LOGIN_EMAIL, LOGIN_PWD + "1");
+        loginPage.login(
+                serverInfo.getLoginEmail(),
+                serverInfo.getLoginPwd() + "1",
+                serverInfo.getBaseURL());
 
         // Check If login success
         Assert.assertEquals(
