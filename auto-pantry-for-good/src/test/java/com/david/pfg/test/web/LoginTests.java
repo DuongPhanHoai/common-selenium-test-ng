@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.david.pfg.page.LoginPage;
-import com.david.pfg.test.props.ConfigReader;
+import com.david.pfg.test.data.ConfigReader;
 import com.david.test.core.BaseWebTest;
 import com.david.test.core.dto.ServerInfo;
 

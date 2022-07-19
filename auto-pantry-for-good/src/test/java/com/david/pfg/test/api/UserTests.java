@@ -5,7 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.david.pfg.restapi.User;
-import com.david.pfg.test.props.ConfigReader;
+import com.david.pfg.test.data.ConfigReader;
 import com.david.test.core.BaseAPITest;
 
 import io.restassured.response.Response;

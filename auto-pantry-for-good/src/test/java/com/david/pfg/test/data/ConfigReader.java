@@ -1,4 +1,4 @@
-package com.david.pfg.test.props;
+package com.david.pfg.test.data;
 
 import java.io.IOException;
 import java.io.InputStream;

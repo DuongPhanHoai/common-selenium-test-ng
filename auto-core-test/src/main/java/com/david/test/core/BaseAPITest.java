@@ -60,7 +60,7 @@ public abstract class BaseAPITest {
             specification =
                     RestAssured.given()
                             .baseUri(serverInfo.getBaseURL())
-                            .header("Content-Type", "application/json")
+                            .header("content-type", "application/json")
                             .cookie("connect.sid", connectSID);
         }
         return specification;

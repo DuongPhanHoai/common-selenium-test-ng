@@ -20,4 +20,9 @@ Following is the steps which guide you to in stall pantry for good
 ****** ****** INSTALLATION NOTE ****** ******
  - Follow the README of https://github.com/freeCodeCamp/pantry-for-good
    - But install NodeJS 6 (Newer may not work): https://nodejs.org/fr/blog/release/v6.11.1/
- - Configure data is stored under file config.properties of the test project for the correct reading
+
+****** ****** ADDED CODE ****** ******
+ - Configure data is stored under file config.properties of the auto-pantry-for-good / test / resources
+   - Read in class ConfigReader
+ - Excel is stored under file EditFoodIem.xlsx of the project auto-pantry-for-good / test / resources
+   - Read in class ExcelReader, provide data to FoodTests

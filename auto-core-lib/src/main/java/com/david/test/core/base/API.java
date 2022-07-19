@@ -37,6 +37,31 @@ public class API {
                 .response();
     }
 
+    protected Response post(Object bodyData, String additionalEndPoint) {
+        String newEndPoint = endPoint + additionalEndPoint;
+        LOG.info("Post to {} with data {}", newEndPoint, bodyData.toString());
+        return given().spec(specification)
+                .body(bodyData)
+                .when()
+                .post(newEndPoint)
+                .then()
+                .extract()
+                .response();
+    }
+
+    protected Response put(Object bodyData, String additionalEndPoint) {
+        String newEndPoint = endPoint + additionalEndPoint;
+        LOG.info("Post to {} with data {}", newEndPoint, bodyData.toString());
+        return given().spec(specification)
+                .body(bodyData)
+                .when()
+                .put(newEndPoint)
+                .then()
+                .statusCode(200)
+                .extract()
+                .response();
+    }
+
     protected Response get() {
         LOG.info("Get to {} with data {}", endPoint);
         return given().spec(specification)

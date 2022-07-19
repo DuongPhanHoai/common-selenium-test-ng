@@ -17,7 +17,6 @@ public class User extends API {
     /**
      * Ask by API
      *
-     * @param get list of user
      * @return the Response
      */
     public Response list() {
