@@ -8,7 +8,7 @@
     <packaging>pom</packaging>
     <version>0.1.0</version>
     <name>common-test-ng-framework</name>
-    <url>https://github.com/DuongPhanHoai/gsheet-java-api</url>
+    <url>https://github.com/DuongPhanHoai/common-selenium-test-ng</url>
     <description>Google Sheet report libraries</description>
     <developers>
         <developer>
@@ -33,54 +33,87 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <testng.version>6.10</testng.version>
+        <selenium.java>3.9.1</selenium.java>
+        <lombok.version>0.11.6</lombok.version>
+        <rest.assured.version>3.0.0</rest.assured.version>
+        <org.json.version>20210307</org.json.version>
+        <org.apache.commons.version>3.12.0</org.apache.commons.version>
+        <slf4j.version>1.7.7</slf4j.version>
+
+        <org.apache.commons.version>3.12.0</org.apache.commons.version>
+
+        <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+        <sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
         <spotless.version>2.9.0</spotless.version>
-        <slf4jVersion>1.7.7</slf4jVersion>
     </properties>
 
     <modules>
         <module>auto-core-lib</module>
-        <module>auto-demo</module>
+        <module>auto-core-test</module>
+        <module>auto-project-sample</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>com.github.duongphanhoai</groupId>
+                <artifactId>auto-core-lib</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.duongphanhoai</groupId>
+                <artifactId>auto-core-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.testng</groupId>
                 <artifactId>testng</artifactId>
-                <version>6.10</version>
+                <version>${testng.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
-                <version>3.9.1</version>
+                <version>${selenium.java}</version>
             </dependency>
 
+            <!--Import log modules-->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>${slf4jVersion}</version>
+                <version>${slf4j.version}</version>
             </dependency>
+
+            <!--Import utils modules-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${org.apache.commons.version}</version>
+            </dependency>
+
+            <!--Import lombok modules-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!--Import REST API test modules-->
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest.assured.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>${org.json.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
-    <dependencies>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-gitexe</artifactId>
-            <version>1.9.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
-    </dependencies>
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -102,21 +135,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>${maven.surefire.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
-                <version>3.6.0.1398</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
+                <version>${sonar.maven.plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
