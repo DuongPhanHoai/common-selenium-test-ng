@@ -12,7 +12,3 @@ API Testing
 
 Hope you can understand well the ideas,
 GOOD LUCK
-
-****** This is the implementation branch specific for pantry for good ******
-Pantry For Good is a good sample site which can contains some errors/bugs which simulates very the real testing circumstances
-Following is the steps which guide you to in stall pantry for good
