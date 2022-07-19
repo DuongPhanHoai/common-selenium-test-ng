@@ -1,28 +1,36 @@
 package com.david.test.core;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.logging.Level;
 
+import com.david.test.core.base.Page;
+import com.david.test.core.util.LogUtils;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.testng.annotations.*;
 
-import com.david.test.core.driver.Driver;
-import com.david.test.core.driver.WebDriver;
+import com.david.test.core.driver.WebDriverManager;
+
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
 /** Verify first sample of BaseWebTest - init the drive with browser setting */
 public abstract class BaseWebTest {
-    Driver driver;
+    protected static final Logger LOG = LoggerFactory.getLogger(BaseWebTest.class);
+    WebDriverManager webDriverManager;
 
-    public Driver getDriver() {
-        return driver;
+    public WebDriverManager getWebDriverManager() {
+        return webDriverManager;
     }
 
     @Parameters({"browser"})
@@ -31,7 +39,37 @@ public abstract class BaseWebTest {
         initDriver(browser);
     }
 
+    @AfterMethod(alwaysRun = true)
+    protected synchronized void baseAfterMethod() {
+        if (Objects.nonNull(webDriverManager))
+        try {
+            webDriverManager.end();
+        } catch (NullPointerException npe) {
+            LOG.debug("Driver was null, not running driver quit & remove");
+        } catch (WebDriverException wde) {
+            LOG.debug("Driver was not available, not running driver quit & remove");
+        }
+    }
+
+    @AfterSuite(alwaysRun = true)
+    protected synchronized void baseAfterSuite() {
+        WebDriverManager.kill();
+    }
+
     protected void initDriver(String browser) {
+        if (browser.equalsIgnoreCase("chrome")) {
+            try {
+                initChromeDriver();
+            }
+            catch (Exception e) {
+                LOG.error(LogUtils.getFullStack(e));
+            }
+        } else LOG.error("Support only Chrome Browser");
+    }
+
+    void initChromeDriver() {
+        LOG.debug("Initializing Chrome driver");
+        ChromeDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = initChomeOpt();
         DesiredCapabilities dCap = DesiredCapabilities.chrome();
         dCap.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
@@ -39,7 +77,8 @@ public abstract class BaseWebTest {
         LoggingPreferences logprefs = new LoggingPreferences();
         logprefs.enable(LogType.PERFORMANCE, Level.INFO);
         dCap.setCapability(CapabilityType.LOGGING_PREFS, logprefs);
-        driver = new WebDriver(dCap);
+        webDriverManager = new WebDriverManager(new ChromeDriver(dCap));
+        webDriverManager.getDriver().manage().window().maximize();
     }
 
     protected ChromeOptions initChomeOpt() {

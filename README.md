@@ -16,3 +16,7 @@ GOOD LUCK
 ****** This is the implementation branch specific for pantry for good ******
 Pantry For Good is a good sample site which can contains some errors/bugs which simulates very the real testing circumstances
 Following is the steps which guide you to in stall pantry for good
+
+****** ****** INSTALLATION NOTE ****** ******
+ - Follow the README of https://github.com/freeCodeCamp/pantry-for-good
+   - But install NodeJS 6 (Newer may not work): https://nodejs.org/fr/blog/release/v6.11.1/

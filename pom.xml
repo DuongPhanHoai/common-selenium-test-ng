@@ -35,6 +35,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>6.10</testng.version>
         <selenium.java>3.9.1</selenium.java>
+        <io.github.bonigarcia.version>5.2.1</io.github.bonigarcia.version>
+
         <lombok.version>0.11.6</lombok.version>
         <rest.assured.version>3.0.0</rest.assured.version>
         <org.json.version>20210307</org.json.version>
@@ -51,7 +53,7 @@
     <modules>
         <module>auto-core-lib</module>
         <module>auto-core-test</module>
-        <module>auto-project-sample</module>
+        <module>auto-pantry-for-good</module>
     </modules>
 
     <dependencyManagement>
@@ -76,12 +78,23 @@
                 <artifactId>selenium-java</artifactId>
                 <version>${selenium.java}</version>
             </dependency>
+            <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${io.github.bonigarcia.version}</version>
+            </dependency>
 
             <!--Import log modules-->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+                <scope>test</scope>
             </dependency>
 
             <!--Import utils modules-->

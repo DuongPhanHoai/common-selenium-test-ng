@@ -1,26 +1,38 @@
 package com.david.test.core.element;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.david.test.core.driver.Driver;
+import com.david.test.core.driver.DriverManager;
 
 public class WElement extends Element implements WebElement {
     protected final Logger LOG = LoggerFactory.getLogger(WElement.class);
     String instanceString;
+    String name;
 
-    public WElement(Driver driver, String name) {
-        super(driver, name);
-        instanceString = name + " as " + by;
+    public WElement(DriverManager driverManager, String name) {
+        super(driverManager, name);
+        this.name = name = name;
+        instanceString = name;
+    }
+
+    /**
+     * Overide setBy to create instanceString more detail
+     * @param by
+     */
+    public void setBy(By by) {
+        instanceString = String.format("%s[%s]",name,by);
+        super.setBy(by);
     }
 
     WebElement findElement() {
         try {
-            return driver.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
+            return driverManager.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
         } catch (TimeoutException e) {
             LOG.debug("Get  Exception ", e);
             throw new TimeoutException("Unable to find " + instanceString);
@@ -83,7 +95,8 @@ public class WElement extends Element implements WebElement {
     @Override
     public boolean isDisplayed() {
         try {
-            WebElement e = driver.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
+            WebElement e =
+                    driverManager.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
             if (e.isDisplayed()) {
                 LOG.info("{} displayed", instanceString);
                 return true;

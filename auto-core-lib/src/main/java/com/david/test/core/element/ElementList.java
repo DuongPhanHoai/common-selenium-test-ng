@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.david.test.core.driver.Driver;
+import com.david.test.core.driver.DriverManager;
 
 public class ElementList extends Element implements List<Element> {
-    public ElementList(Driver driver, String name) {
-        super(driver, name);
+    public ElementList(DriverManager driverManager, String name) {
+        super(driverManager, name);
     }
 
     @Override

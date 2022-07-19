@@ -1,9 +1,9 @@
-package com.david.google.test.api;
+package com.david.pfg.test.api;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.david.google.restapi.Question;
+import com.david.pfg.restapi.Question;
 import com.david.test.core.BaseAPITest;
 
 import io.restassured.response.Response;

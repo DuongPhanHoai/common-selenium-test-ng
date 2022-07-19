@@ -13,14 +13,14 @@ import org.openqa.selenium.support.FindBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.david.test.core.driver.Driver;
+import com.david.test.core.driver.DriverManager;
 import com.david.test.core.util.LogUtils;
 import com.david.test.core.util.Reflect;
 
 public class ElementFactory {
     protected static final Logger LOG = LoggerFactory.getLogger(ElementFactory.class);
 
-    public static void loadElements(Driver driver, Object pageElement) {
+    public static void loadElements(DriverManager driverManager, Object pageElement) {
         Class<?> type = pageElement.getClass();
         List<Field> fields = new ArrayList<>();
         while (type != null) {
@@ -28,18 +28,18 @@ public class ElementFactory {
             type = type.getSuperclass();
         }
         for (Field field : fields) {
-            loadElement(driver, pageElement, field);
+            loadElement(driverManager, pageElement, field);
         }
     }
 
-    private static void loadElement(Driver driver, Object pageElement, Field field) {
+    private static void loadElement(DriverManager driverManager, Object pageElement, Field field) {
         try {
             if (!Reflect.isFinBy(field)) {
                 return;
             }
             Object instance = Reflect.getValue(field, pageElement);
             if (instance == null) {
-                instance = createElement(driver, field);
+                instance = createElement(driverManager, field);
             }
             if (instance != null) {
                 Class<?> type = instance.getClass();
@@ -58,21 +58,21 @@ public class ElementFactory {
     /**
      * init Test Element
      *
-     * @param driver the driver to init
+     * @param driverManager the driverManager to init
      * @param field has to be Element or inherit from Element
      * @return Object with the Field class
      */
-    private static Object createElement(Driver driver, Field field)
+    private static Object createElement(DriverManager driverManager, Field field)
             throws NoSuchMethodException, InvocationTargetException, InstantiationException,
                     IllegalAccessException {
         Constructor constructor =
-                field.getType().getConstructor(new Class[] {Driver.class, String.class});
+                field.getType().getConstructor(new Class[] {DriverManager.class, String.class});
         if (Reflect.isType(field.getType(), WebElement.class, false)) {
-            return constructor.newInstance(driver, field.getName());
+            return constructor.newInstance(driverManager, field.getName());
         }
         if (Reflect.isType(field.getType(), ElementList.class, true)
                 || Reflect.isType(field.getType(), List.class, false)) {
-            return new Element(driver, field.getName());
+            return new Element(driverManager, field.getName());
         } else return null;
     }
 
