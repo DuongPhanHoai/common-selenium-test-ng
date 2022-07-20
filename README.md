@@ -29,3 +29,5 @@ Following is the steps which guide you to in stall pantry for good
  - GoogleSheet report https://docs.google.com/spreadsheets/d/1eaAz6HwGiZxJjpTIgasOzVegRFK2UnDUC2H6r0-SI2Q
    - Meet the error "Unable to set permissions for" "because you are running on a non-POSIX file system."
    - In Windows fir by Grand permission for the executor or everyone(less secured)
+   - Command line in Windows: mvn clean install -pl auto-pantry-for-good -Dtest=*
+   - Command line in Windows: mvn clean install -pl auto-pantry-for-good -Dtest=LoginTests#loginSuccessful
