@@ -2,10 +2,10 @@ package com.david.test.core.element;
 
 import org.openqa.selenium.*;
 
-import com.david.test.core.driver.Driver;
+import com.david.test.core.driver.DriverManager;
 
 public class Element {
-    protected Driver driver;
+    protected DriverManager driverManager;
     protected String name;
 
     protected By by;
@@ -14,8 +14,8 @@ public class Element {
         this.by = by;
     }
 
-    public Element(Driver driver, String name) {
-        this.driver = driver;
+    public Element(DriverManager driverManager, String name) {
+        this.driverManager = driverManager;
         this.name = name;
     }
 }

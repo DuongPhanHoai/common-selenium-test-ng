@@ -12,3 +12,9 @@ API Testing
 
 Hope you can understand well the ideas,
 GOOD LUCK
+
+****** ****** ADDED CODE ****** ******
+- Configure data is stored under file config.properties of the auto-pantry-for-good / test / resources
+    - Read in class ConfigReader
+- Excel is stored under file EditFoodIem.xlsx of the project auto-pantry-for-good / test / resources
+    - Read in class ExcelReader, provide data to FoodTests
