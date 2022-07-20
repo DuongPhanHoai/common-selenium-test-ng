@@ -1,8 +1,6 @@
 package com.david.test.core;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.logging.Level;
 
 import org.openqa.selenium.PageLoadStrategy;
@@ -16,6 +14,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.*;
+import org.testng.annotations.Optional;
 
 import com.david.test.core.driver.WebDriverManager;
 import com.david.test.core.util.LogUtils;
@@ -23,6 +22,7 @@ import com.david.test.core.util.LogUtils;
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
 /** Verify first sample of BaseWebTest - init the drive with browser setting */
+@Listeners({com.kms.gdrive.testng.listener.class})
 public abstract class BaseWebTest {
     protected static final Logger LOG = LoggerFactory.getLogger(BaseWebTest.class);
     WebDriverManager webDriverManager;

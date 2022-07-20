@@ -131,6 +131,12 @@
                 <version>${org.apache.poi.version}</version>
             </dependency>
 
+            <!-- Google Sheet report -->
+            <dependency>
+                <groupId>com.github.duongphanhoai</groupId>
+                <artifactId>gsheet-testng-listener</artifactId>
+                <version>0.0.4</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

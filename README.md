@@ -26,3 +26,6 @@ Following is the steps which guide you to in stall pantry for good
    - Read in class ConfigReader
  - Excel is stored under file EditFoodIem.xlsx of the project auto-pantry-for-good / test / resources
    - Read in class ExcelReader, provide data to FoodTests
+ - GoogleSheet report https://docs.google.com/spreadsheets/d/1eaAz6HwGiZxJjpTIgasOzVegRFK2UnDUC2H6r0-SI2Q
+   - Meet the error "Unable to set permissions for" "because you are running on a non-POSIX file system."
+   - In Windows fir by Grand permission for the executor or everyone(less secured)
