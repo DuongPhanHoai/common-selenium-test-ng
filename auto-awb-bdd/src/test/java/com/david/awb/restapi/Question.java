@@ -1,8 +1,7 @@
 package com.david.awb.restapi;
 
-import org.json.JSONObject;
-
 import com.david.test.core.base.API;
+import com.google.gson.JsonObject;
 
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -20,8 +19,8 @@ public class Question extends API {
      * @return the Response
      */
     public Response ask(String question) {
-        JSONObject data = new JSONObject();
-        data.put("question", question);
+        JsonObject data = new JsonObject();
+        data.addProperty("question", question);
         return post(data);
     }
 }

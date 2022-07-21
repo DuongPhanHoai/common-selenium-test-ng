@@ -1,34 +1,22 @@
 package com.david.test.core.dto;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
 public class ServerInfo {
-    String baseURL = "http://localhost:8080/";
+    @Builder.Default String baseURL = "http://localhost:8080/";
 
-    public String getBaseURL() {
-        return baseURL;
-    }
+    @Builder.Default String loginEndPoint = "sg/oauth/access_token";
 
-    String loginEndPoint = "api/auth/signin";
+    @Builder.Default String loginEmail = "admin@example.com";
 
-    public String getLoginEndPoint() {
-        return loginEndPoint;
-    }
+    @Builder.Default String loginPwd = "password";
 
-    String loginEmail = "admin@example.com";
+    @Builder.Default String apiBaseURL = "https://v4.ninja.com/";
 
-    public String getLoginEmail() {
-        return loginEmail;
-    }
+    @Builder.Default String clientId = "f288852c-7a4a-4d5e-8267-a83778233ad0";
 
-    String loginPwd = "password";
-
-    public String getLoginPwd() {
-        return loginPwd;
-    }
-
-    public ServerInfo(String baseURL, String loginEndPoint, String loginEmail, String loginPwd) {
-        this.baseURL = baseURL;
-        this.loginEndPoint = loginEndPoint;
-        this.loginEmail = loginEmail;
-        this.loginPwd = loginPwd;
-    }
+    @Builder.Default String clientSecret = "be2z8YU6ubykr1oJYWee5Q";
 }

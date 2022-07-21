@@ -28,7 +28,13 @@ public class ConfigReader {
             String loginEndPoint = properties.getProperty("loginEndPoint");
             String loginEmail = properties.getProperty("loginEmail");
             String loginPwd = properties.getProperty("loginPwd");
-            serverInfo = new ServerInfo(baseURL, loginEndPoint, loginEmail, loginPwd);
+            serverInfo =
+                    ServerInfo.builder()
+                            .baseURL(baseURL)
+                            .loginEndPoint(loginEndPoint)
+                            .loginEmail(loginEmail)
+                            .loginPwd(loginPwd)
+                            .build();
         }
         return serverInfo;
     }
