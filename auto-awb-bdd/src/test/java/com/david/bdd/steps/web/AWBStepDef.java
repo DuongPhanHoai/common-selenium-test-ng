@@ -1,4 +1,4 @@
-package com.david.bdd.awb.steps;
+package com.david.bdd.steps.web;
 
 import java.io.File;
 import java.io.IOException;

@@ -28,12 +28,20 @@ public class ConfigReader {
             String loginEndPoint = properties.getProperty("loginEndPoint");
             String loginEmail = properties.getProperty("loginEmail");
             String loginPwd = properties.getProperty("loginPwd");
+
+            String apiBaseURL = properties.getProperty("apiBaseURL");
+            String clientId = properties.getProperty("clientId");
+            String clientSecret = properties.getProperty("clientSecret");
+
             serverInfo =
                     ServerInfo.builder()
                             .baseURL(baseURL)
                             .loginEndPoint(loginEndPoint)
                             .loginEmail(loginEmail)
                             .loginPwd(loginPwd)
+                            .apiBaseURL(apiBaseURL)
+                            .clientId(clientId)
+                            .clientSecret(clientSecret)
                             .build();
         }
         return serverInfo;

@@ -1,25 +1,35 @@
-package com.david.awb.test.api;
+package com.david.bdd.steps.api;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
+import com.david.awb.data.ConfigReader;
 import com.david.awb.restapi.Order;
-import com.david.awb.test.api.dto.*;
-import com.david.awb.test.data.ConfigReader;
+import com.david.bdd.steps.api.dto.*;
 import com.david.test.core.BaseAPITest;
 import com.david.test.core.dto.ServerInfo;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-/**
- * Verify fist sample API test sample: - Extend the BaseAPITest - Apply the API Endpoint Question
- */
-public class AWBAPITest extends BaseAPITest {
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
+public class AWBAPIStepDef extends BaseAPITest {
+    protected static final Logger LOG = LoggerFactory.getLogger(AWBAPIStepDef.class);
     ServerInfo serverInfo = ConfigReader.getServerInfo();
+    Order order;
 
-    @Test
-    public void createNewOrder() {
+    @Given("Login to get token")
+    public void loginToGetToken() {
+        order = new Order(getSpecification(serverInfo));
+    }
+
+    JsonObject createOrderResult;
+
+    @When("Create a new order")
+    public void createANewOrder() {
         OrderRequest orderRequest =
                 OrderRequest.builder()
                         .service_type("Parcel")
@@ -72,11 +82,12 @@ public class AWBAPITest extends BaseAPITest {
                                         .build())
                         .build();
         JsonObject inputData = new Gson().toJsonTree(orderRequest).getAsJsonObject();
-        // Create new Order
-        Order order = new Order(getSpecification(serverInfo));
-        JsonObject res = order.create(inputData);
+        createOrderResult = order.create(inputData);
+    }
 
+    @Then("Order is created successful")
+    public void orderIsCreatedSuccessful() {
         // Verify Status OK
-        Assert.assertEquals("OK", res.get("status").getAsString());
+        Assert.assertEquals("OK", createOrderResult.get("status").getAsString());
     }
 }
