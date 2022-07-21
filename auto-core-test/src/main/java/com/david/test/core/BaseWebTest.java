@@ -1,5 +1,6 @@
 package com.david.test.core;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -24,6 +25,13 @@ import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 
 /** Verify first sample of BaseWebTest - init the drive with browser setting */
 public abstract class BaseWebTest {
+
+    static String downloadFilepath = System.getProperty("user.dir") + File.separator + "Download";
+
+    public static String getDownloadDir() {
+        return downloadFilepath;
+    }
+
     protected static final Logger LOG = LoggerFactory.getLogger(BaseWebTest.class);
     WebDriverManager webDriverManager;
 
@@ -81,6 +89,8 @@ public abstract class BaseWebTest {
     protected ChromeOptions initChomeOpt() {
         ChromeOptions cOpts = new ChromeOptions();
         Map<String, Object> prefs = new HashMap<>();
+        prefs.put("download.default_directory", downloadFilepath);
+        prefs.put("plugins.always_open_pdf_externally", true);
         cOpts.addArguments("--incognito");
         cOpts.addArguments("--no-sandbox");
         cOpts.setExperimentalOption("prefs", prefs);

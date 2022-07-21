@@ -5,8 +5,11 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class DriverManager {
+    protected static final Logger LOG = LoggerFactory.getLogger(DriverManager.class);
     RemoteWebDriver driver;
 
     public RemoteWebDriver getDriver() {
@@ -45,5 +48,23 @@ public abstract class DriverManager {
 
     public void end() {
         driver.quit();
+    }
+
+    public static void sleep(long seconds) {
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            LOG.debug("Sleep exception: ", e);
+            Thread.currentThread().interrupt();
+        }
+    }
+
+    public static void sleepMilliseconds(long milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            LOG.debug("Sleep exception: ", e);
+            Thread.currentThread().interrupt();
+        }
     }
 }

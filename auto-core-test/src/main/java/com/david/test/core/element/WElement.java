@@ -41,8 +41,12 @@ public class WElement extends Element implements WebElement {
 
     @Override
     public void click() {
-        findElement().click();
+        driverManager
+                .getWait()
+                .until(ExpectedConditions.elementToBeClickable(findElement()))
+                .click();
         LOG.info("Click {}", instanceString);
+        driverManager.sleep(1);
     }
 
     @Override
@@ -52,6 +56,7 @@ public class WElement extends Element implements WebElement {
     public void sendKeys(CharSequence... charSequences) {
         findElement().sendKeys(charSequences);
         LOG.info("sendKeys {} to {}", charSequences, instanceString);
+        driverManager.sleepMilliseconds(500);
     }
 
     @Override
@@ -64,7 +69,7 @@ public class WElement extends Element implements WebElement {
 
     @Override
     public String getAttribute(String s) {
-        return null;
+        return findElement().getAttribute(s);
     }
 
     @Override
@@ -79,17 +84,20 @@ public class WElement extends Element implements WebElement {
 
     @Override
     public String getText() {
-        return null;
+        return driverManager
+                .getWait()
+                .until(ExpectedConditions.visibilityOf(findElement()))
+                .getText();
     }
 
     @Override
     public List<WebElement> findElements(By by) {
-        return null;
+        return findElement().findElements(by);
     }
 
     @Override
     public WebElement findElement(By by) {
-        return null;
+        return findElement().findElement(by);
     }
 
     @Override
