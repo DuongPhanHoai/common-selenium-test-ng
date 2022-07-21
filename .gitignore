@@ -20,3 +20,4 @@ mvn nexus-staging:release
 mvn nexus-staging:drop
 /auto-core-lib/auto-core-lib.iml
 /auto-awb-testng/Download/
+/auto-awb-bdd/Download/

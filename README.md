@@ -18,3 +18,7 @@ GOOD LUCK
     - Read in class ConfigReader
 - Excel is stored under file EditFoodIem.xlsx of the project auto-pantry-for-good / test / resources
     - Read in class ExcelReader, provide data to FoodTests
+
+
+****** ****** EXECUTE TESTS ****** ******
+- testNG: mvn clean install -pl auto-awb-testng -Dtest=*
