@@ -26,3 +26,7 @@ Following is the steps which guide you to in stall pantry for good
    - Read in class ConfigReader
  - Excel is stored under file EditFoodIem.xlsx of the project auto-pantry-for-good / test / resources
    - Read in class ExcelReader, provide data to FoodTests
+
+project to run: auto-pantry-for-good
+ - Test library: src>main>java>com....
+ - Test case: src>test>java>com....
