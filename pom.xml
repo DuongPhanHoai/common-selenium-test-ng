@@ -37,9 +37,9 @@
         <selenium.java>3.9.1</selenium.java>
         <io.github.bonigarcia.version>5.2.1</io.github.bonigarcia.version>
 
-        <lombok.version>0.11.6</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <rest.assured.version>3.0.0</rest.assured.version>
-        <org.json.version>20210307</org.json.version>
+        <com.google.code.gson.version>2.9.0</com.google.code.gson.version>
         <org.apache.poi.version>3.9</org.apache.poi.version>
         <org.apache.commons.version>3.12.0</org.apache.commons.version>
         <slf4j.version>1.7.7</slf4j.version>
@@ -110,7 +110,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <!--Import REST API test modules-->
@@ -120,9 +119,9 @@
                 <version>${rest.assured.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${org.json.version}</version>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${com.google.code.gson.version}</version>
             </dependency>
             <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
             <dependency>

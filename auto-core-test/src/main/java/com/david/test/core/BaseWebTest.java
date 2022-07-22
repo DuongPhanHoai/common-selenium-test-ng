@@ -73,6 +73,7 @@ public abstract class BaseWebTest {
     }
 
     void initChromeDriver() {
+
         LOG.debug("Initializing Chrome driver");
         ChromeDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = initChomeOpt();

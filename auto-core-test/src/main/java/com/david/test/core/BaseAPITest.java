@@ -4,10 +4,10 @@ import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hamcrest.Matchers;
-import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
 
 import com.david.test.core.dto.ServerInfo;
+import com.google.gson.JsonObject;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
@@ -28,10 +28,10 @@ public abstract class BaseAPITest {
 
         if (Objects.isNull(specification)) {
             if (StringUtils.isEmpty(connectSID)) {
-                JSONObject loginData = new JSONObject();
+                JsonObject loginData = new JsonObject();
 
-                loginData.put("email", serverInfo.getLoginEmail());
-                loginData.put("password", serverInfo.getLoginPwd());
+                loginData.addProperty("email", serverInfo.getLoginEmail());
+                loginData.addProperty("password", serverInfo.getLoginPwd());
 
                 // Get the connectSID
                 Response response =

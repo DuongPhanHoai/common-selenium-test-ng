@@ -22,7 +22,7 @@ public class API {
     /**
      * Wrap for post method easy use
      *
-     * @param bodyData input JSONObject
+     * @param bodyData input JsonObject
      * @return Response
      */
     protected Response post(Object bodyData) {
