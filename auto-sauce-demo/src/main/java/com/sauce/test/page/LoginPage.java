@@ -23,11 +23,18 @@ public class LoginPage extends Page {
     @FindBy(id = "login-button")
     WElement loginButton;
 
+    @FindBy(css = ".error-message-container.error")
+    WElement errorMsg;
+
     public void login(ServerInfo serverInfo) {
         driverManager.getDriver().get(serverInfo.getBaseURL());
         if (loginButton.isDisplayed()) LOG.info("Successfully opened Sauce");
         inputUserName.sendKeys(serverInfo.getStandardUsername());
         inputPassword.sendKeys(serverInfo.getStandardUserPwd());
         loginButton.click();
+    }
+
+    public String getErrorMsg() {
+        return errorMsg.getText();
     }
 }

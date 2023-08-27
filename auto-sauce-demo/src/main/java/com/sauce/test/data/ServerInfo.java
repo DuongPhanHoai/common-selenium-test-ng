@@ -15,8 +15,11 @@ public class ServerInfo {
 
     // Decode Pwd
     public String getStandardUserPwd() {
-        // Decode Base64
-        byte[] result = Base64.getDecoder().decode(standardUserPwd);
-        return new String(result, StandardCharsets.UTF_8);
+        try {
+            // Decode Base64
+            byte[] result = Base64.getDecoder().decode(standardUserPwd);
+            return new String(result, StandardCharsets.UTF_8);
+        } catch (Exception e) {e.printStackTrace();}
+        return standardUserPwd;
     }
 }
