@@ -20,6 +20,11 @@ GOOD LUCK
 
 - testNG: mvn clean test -pl auto-sauce-demo -Dtest=*
 
+**UI tests:**
+1. Login successful
+2. Login failed
+3. Add To Cart successful
+
 
 
 
