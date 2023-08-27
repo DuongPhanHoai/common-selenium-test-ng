@@ -20,10 +20,15 @@ GOOD LUCK
 
 - testNG: mvn clean test -pl auto-sauce-demo -Dtest=*
 
-**UI tests:**
+**UI tests** from site: https://www.saucedemo.com/
 1. Login successful
 2. Login failed
 3. Add To Cart successful
+
+
+**API Tests** from https://thinking-tester-contact-list.herokuapp.com/contactList (duongphanhoai@yahoo.com / T@sting)
+
+
 
 
 

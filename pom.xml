@@ -37,7 +37,7 @@
         <selenium.java>3.9.1</selenium.java>
         <lombok.version>1.18.20</lombok.version>
         <rest.assured.version>3.0.0</rest.assured.version>
-        <org.json.version>20210307</org.json.version>
+        <gson.version>2.9.0</gson.version>
         <org.apache.commons.version>3.12.0</org.apache.commons.version>
         <slf4j.version>2.0.7</slf4j.version>
         <commons.codec.version>1.15</commons.codec.version>
@@ -54,6 +54,7 @@
         <module>auto-core-lib</module>
         <module>auto-core-test</module>
         <module>auto-sauce-demo</module>
+        <module>auto-contact-api</module>
     </modules>
 
     <dependencyManagement>
@@ -125,9 +126,9 @@
                 <version>${rest.assured.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${org.json.version}</version>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
             </dependency>
 
 

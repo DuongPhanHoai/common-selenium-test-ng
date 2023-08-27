@@ -10,7 +10,7 @@ import com.sauce.test.page.LoginPage;
 import com.sauce.test.page.ProductDetailPage;
 
 /** Verify fist sample web test sample: - Extend the BaseSourceWebTest - Using the POM */
-public class LandingTest extends BaseSourceWebTest {
+public class LandingTests extends BaseSourceWebTest {
     /**
      * Steps: - Open page, login with valid user - Click to the product "Sauce Labs Onesie" in list
      * - Click Add To Cart Verify: - Open Cart and verify Adding successful
