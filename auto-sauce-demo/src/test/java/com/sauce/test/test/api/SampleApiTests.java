@@ -1,10 +1,10 @@
-package com.david.google.test.api;
+package com.sauce.test.test.api;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.david.google.restapi.Question;
 import com.david.test.core.BaseAPITest;
+import com.sauce.test.restapi.Question;
 
 import io.restassured.response.Response;
 

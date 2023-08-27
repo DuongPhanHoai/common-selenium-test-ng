@@ -12,3 +12,14 @@ API Testing
 
 Hope you can understand well the ideas,
 GOOD LUCK
+
+>> REBUILD FOR DEMO AUTOMATION TEST
+1 - Set env = dev / staging / production by set env variable (Add "-ea -Denv=staging" to VM Options of edit test run Configuration in IntelliJ)
+> Also can set as tamplate to auto gen the template configuration
+
+- testNG: mvn clean test -pl auto-sauce-demo -Dtest=*
+
+
+
+
+
