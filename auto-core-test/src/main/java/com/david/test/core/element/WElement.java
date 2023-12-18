@@ -3,20 +3,23 @@ package com.david.test.core.element;
 import java.util.List;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.david.test.core.driver.DriverManager;
+import com.david.test.core.util.TimeUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class WElement extends Element implements WebElement {
-    protected final Logger LOG = LoggerFactory.getLogger(WElement.class);
+    WebDriverWait wait;
     String instanceString;
     String name;
 
-    public WElement(DriverManager driverManager, String name) {
-        super(driverManager, name);
+    public WElement(RemoteWebDriver driver, String name) {
+        super(driver, name);
+        this.wait = new WebDriverWait(driver, TimeUtil.WAIT_SEC, TimeUtil.INTERVAL_MILLI_SEC);
         this.name = name;
         instanceString = name;
     }
@@ -33,21 +36,18 @@ public class WElement extends Element implements WebElement {
 
     WebElement findElement() {
         try {
-            return driverManager.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
+            return wait.until(ExpectedConditions.presenceOfElementLocated(by));
         } catch (TimeoutException e) {
-            LOG.debug("Get  Exception ", e);
+            log.debug("Get  Exception ", e);
             throw new TimeoutException("Unable to find " + instanceString);
         }
     }
 
     @Override
     public void click() {
-        driverManager
-                .getWait()
-                .until(ExpectedConditions.elementToBeClickable(findElement()))
-                .click();
-        LOG.info("Click {}", instanceString);
-        DriverManager.sleep(2);
+        wait.until(ExpectedConditions.elementToBeClickable(findElement())).click();
+        log.info("Click {}", instanceString);
+        TimeUtil.sleep(2);
     }
 
     @Override
@@ -56,8 +56,8 @@ public class WElement extends Element implements WebElement {
     @Override
     public void sendKeys(CharSequence... charSequences) {
         findElement().sendKeys(charSequences);
-        LOG.info("sendKeys {} to {}", charSequences, instanceString);
-        DriverManager.sleepMilliseconds(500);
+        log.info("sendKeys {} to {}", charSequences, instanceString);
+        TimeUtil.sleepMilliseconds(500);
     }
 
     @Override
@@ -85,10 +85,7 @@ public class WElement extends Element implements WebElement {
 
     @Override
     public String getText() {
-        return driverManager
-                .getWait()
-                .until(ExpectedConditions.visibilityOf(findElement()))
-                .getText();
+        return wait.until(ExpectedConditions.visibilityOf(findElement())).getText();
     }
 
     @Override
@@ -104,17 +101,16 @@ public class WElement extends Element implements WebElement {
     @Override
     public boolean isDisplayed() {
         try {
-            WebElement e =
-                    driverManager.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
+            WebElement e = wait.until(ExpectedConditions.presenceOfElementLocated(by));
             if (e.isDisplayed()) {
-                LOG.info("{} displayed", instanceString);
+                log.info("{} displayed", instanceString);
                 return true;
             } else {
-                LOG.info("{} did not displayed", instanceString);
+                log.info("{} did not displayed", instanceString);
                 return false;
             }
         } catch (TimeoutException e) {
-            LOG.debug("Get WElement Exception ", e);
+            log.debug("Get WElement Exception ", e);
             return false;
         }
     }
@@ -122,17 +118,17 @@ public class WElement extends Element implements WebElement {
     public boolean isDisplayed(int second) {
         try {
             WebElement e =
-                    new WebDriverWait(driverManager.getDriver(), second)
+                    new WebDriverWait(driver, second)
                             .until(ExpectedConditions.presenceOfElementLocated(by));
             if (e.isDisplayed()) {
-                LOG.info("{} displayed", instanceString);
+                log.info("{} displayed", instanceString);
                 return true;
             } else {
-                LOG.info("{} did not displayed", instanceString);
+                log.info("{} did not displayed", instanceString);
                 return false;
             }
         } catch (TimeoutException e) {
-            LOG.debug("Get WElement Exception ", e);
+            log.debug("Get WElement Exception ", e);
             return false;
         }
     }

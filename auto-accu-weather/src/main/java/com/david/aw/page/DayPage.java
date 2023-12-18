@@ -5,16 +5,16 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.david.aw.dto.DayInfo;
 import com.david.test.core.base.Page;
-import com.david.test.core.driver.DriverManager;
 import com.david.test.core.element.WElement;
 
 public class DayPage extends Page {
-    public DayPage(DriverManager driverManager) {
-        super(driverManager);
+    public DayPage(RemoteWebDriver driver) {
+        super(driver);
     }
 
     @FindBy(css = ".module-title")

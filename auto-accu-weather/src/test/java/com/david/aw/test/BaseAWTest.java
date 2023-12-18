@@ -7,6 +7,9 @@ import com.david.aw.data.ConfigReader;
 import com.david.aw.data.ServerInfo;
 import com.david.test.core.BaseWebTest;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class BaseAWTest extends BaseWebTest {
     protected ServerInfo serverInfo;
     static String env = "production";
@@ -15,6 +18,7 @@ public class BaseAWTest extends BaseWebTest {
     protected void beforeSuite() {
         // Get env from ENV variable
         if (StringUtils.isNotBlank(System.getProperty("env"))) env = System.getProperty("env");
+
         // Read config
         serverInfo = ConfigReader.getServerInfo(env);
     }

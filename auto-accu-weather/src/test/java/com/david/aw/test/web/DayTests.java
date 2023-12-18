@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -26,33 +25,40 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class DayTests extends BaseAWTest {
-    protected final Logger log = LoggerFactory.getLogger(DayTests.class);
     static final String SCAN_ALL_DAYS_JSON = "scanAllDays.json";
     private static final Type REVIEW_TYPE = new TypeToken<List<DayCollection>>() {}.getType();
 
-    @Test
-    public void scanAllDays() throws IOException {
+    @Test(priority = 1)
+    public void scanAllDays() {
+        RemoteWebDriver driver = initDriver("chrome");
         // Declare Pages
-        HomePage homePage = new HomePage(getWebDriverManager());
-        DayPage dayPage = new DayPage(getWebDriverManager());
-        DayDetailPage dayDetailPage = new DayDetailPage(getWebDriverManager());
+        HomePage homePage = new HomePage(driver);
+        DayPage dayPage = new DayPage(driver);
+        DayDetailPage dayDetailPage = new DayDetailPage(driver);
 
         // Load old data from file
         List<DayCollection> dayCollections = null;
         File file = new File(SCAN_ALL_DAYS_JSON);
         Gson gson = new Gson();
-        if (file.exists() && !file.isDirectory()) {
-            JsonReader reader = new JsonReader(new FileReader(file));
-            dayCollections = gson.fromJson(reader, REVIEW_TYPE);
-            reader.close();
-        }
+        if (file.exists() && !file.isDirectory())
+            try {
+                JsonReader reader = new JsonReader(new FileReader(file));
+                dayCollections = gson.fromJson(reader, REVIEW_TYPE);
+                reader.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         if (Objects.isNull(dayCollections)) {
             dayCollections = new ArrayList<>();
         }
 
         // Weather tools Use case:
         // 1. Use https://www.accuweather.com
+        if (Objects.isNull(homePage)) log.error("homePage is null");
         homePage.launchHome(serverInfo);
 
         // 2. Select Daily menu -> Page will display weather information for 30 days
@@ -100,6 +106,8 @@ public class DayTests extends BaseAWTest {
             Gson gwrite = new GsonBuilder().setPrettyPrinting().create();
             String temp = gwrite.toJson(dayCollections, ArrayList.class);
             gwrite.toJson(dayCollections, writer);
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
 
         // 7. Create a summary report. > Integrate with allure report

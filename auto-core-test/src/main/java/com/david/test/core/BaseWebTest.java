@@ -11,34 +11,29 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Optional;
-import org.testng.annotations.Parameters;
 
 import com.david.test.core.driver.WebDriverManager;
 import com.david.test.core.util.LogUtils;
 
 import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
+import lombok.extern.slf4j.Slf4j;
 
 /** Verify first sample of BaseWebTest - init the drive with browser setting */
+@Slf4j
 public abstract class BaseWebTest {
-
-    protected static final Logger LOG = LoggerFactory.getLogger(BaseWebTest.class);
     WebDriverManager webDriverManager;
+    protected RemoteWebDriver driver;
 
     public WebDriverManager getWebDriverManager() {
         return webDriverManager;
     }
 
-    @Parameters({"browser"})
-    @BeforeMethod(alwaysRun = true)
-    protected void beforeMethod(@Optional("chrome") String browser) {
-        initDriver(browser);
-    }
+    // @Parameters({"browser"})
+    // @BeforeMethod(alwaysRun = true)
+    // protected void beforeMethod(@Optional("chrome") String browser) { initDriver(browser); }
 
     @AfterMethod(alwaysRun = true)
     protected synchronized void baseAfterMethod() {
@@ -46,9 +41,9 @@ public abstract class BaseWebTest {
             try {
                 webDriverManager.end();
             } catch (NullPointerException npe) {
-                LOG.debug("Driver was null, not running driver quit & remove");
+                log.debug("Driver was null, not running driver quit & remove");
             } catch (WebDriverException wde) {
-                LOG.debug("Driver was not available, not running driver quit & remove");
+                log.debug("Driver was not available, not running driver quit & remove");
             }
     }
 
@@ -57,24 +52,27 @@ public abstract class BaseWebTest {
         WebDriverManager.kill();
     }
 
-    protected void initDriver(String browser) {
+    protected RemoteWebDriver initDriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             try {
-                initChromeDriver();
+                return initChromeDriver();
             } catch (Exception e) {
-                LOG.error(LogUtils.getFullStack(e));
+                log.error(LogUtils.getFullStack(e));
             }
-        } else LOG.error("Support only Chrome Browser");
+        } else log.error("Support only Chrome Browser");
+        return null;
     }
 
-    void initChromeDriver() {
-        LOG.debug("Initializing Chrome driver");
+    RemoteWebDriver initChromeDriver() {
+        log.debug("Initializing Chrome driver");
         ChromeDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = initChomeOpt();
         LoggingPreferences logprefs = new LoggingPreferences();
         logprefs.enable(LogType.PERFORMANCE, Level.INFO);
         webDriverManager = new WebDriverManager(new ChromeDriver(chromeOptions));
-        webDriverManager.getDriver().manage().window().maximize();
+        driver = webDriverManager.getDriver();
+        driver.manage().window().maximize();
+        return driver;
     }
 
     protected ChromeOptions initChomeOpt() {

@@ -9,18 +9,18 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.david.test.core.driver.DriverManager;
 import com.david.test.core.util.LogUtils;
 import com.david.test.core.util.Reflect;
 
-public class ElementFactory {
-    protected static final Logger LOG = LoggerFactory.getLogger(ElementFactory.class);
+import lombok.extern.slf4j.Slf4j;
 
-    public static void loadElements(DriverManager driverManager, Object pageElement) {
+@Slf4j
+public class ElementFactory {
+
+    public static void loadElements(RemoteWebDriver driver, Object pageElement) {
         Class<?> type = pageElement.getClass();
         List<Field> fields = new ArrayList<>();
         while (type != null) {
@@ -28,18 +28,18 @@ public class ElementFactory {
             type = type.getSuperclass();
         }
         for (Field field : fields) {
-            loadElement(driverManager, pageElement, field);
+            loadElement(driver, pageElement, field);
         }
     }
 
-    private static void loadElement(DriverManager driverManager, Object pageElement, Field field) {
+    private static void loadElement(RemoteWebDriver driver, Object pageElement, Field field) {
         try {
             if (!Reflect.isFinBy(field)) {
                 return;
             }
             Object instance = Reflect.getValue(field, pageElement);
             if (instance == null) {
-                instance = createElement(driverManager, field);
+                instance = createElement(driver, field);
             }
             if (instance != null) {
                 Class<?> type = instance.getClass();
@@ -51,28 +51,22 @@ public class ElementFactory {
                 field.set(pageElement, instance);
             }
         } catch (Exception e) {
-            LOG.error(LogUtils.getFullStack(e));
+            log.error(LogUtils.getFullStack(e));
         }
     }
 
-    /**
-     * init Test Element
-     *
-     * @param driverManager the driverManager to init
-     * @param field has to be Element or inherit from Element
-     * @return Object with the Field class
-     */
-    private static Object createElement(DriverManager driverManager, Field field)
+    /** init Test Element */
+    private static Object createElement(RemoteWebDriver driver, Field field)
             throws NoSuchMethodException, InvocationTargetException, InstantiationException,
                     IllegalAccessException {
         Constructor constructor =
-                field.getType().getConstructor(new Class[] {DriverManager.class, String.class});
+                field.getType().getConstructor(new Class[] {RemoteWebDriver.class, String.class});
         if (Reflect.isType(field.getType(), WebElement.class, false)) {
-            return constructor.newInstance(driverManager, field.getName());
+            return constructor.newInstance(driver, field.getName());
         }
         if (Reflect.isType(field.getType(), ElementList.class, true)
                 || Reflect.isType(field.getType(), List.class, false)) {
-            return new Element(driverManager, field.getName());
+            return new Element(driver, field.getName());
         } else return null;
     }
 

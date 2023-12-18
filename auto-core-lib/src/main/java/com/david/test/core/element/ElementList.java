@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import com.david.test.core.driver.DriverManager;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class ElementList extends Element implements List<Element> {
-    public ElementList(DriverManager driverManager, String name) {
-        super(driverManager, name);
+    public ElementList(RemoteWebDriver driver, String name) {
+        super(driver, name);
     }
 
     @Override

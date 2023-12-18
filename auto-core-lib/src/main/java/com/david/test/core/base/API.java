@@ -2,15 +2,13 @@ package com.david.test.core.base;
 
 import static io.restassured.RestAssured.given;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import lombok.extern.slf4j.Slf4j;
 
 /** Element for API test end point */
+@Slf4j
 public class API {
-    protected static final Logger LOG = LoggerFactory.getLogger(API.class);
     protected RequestSpecification specification;
     protected String endPoint;
 
@@ -34,7 +32,7 @@ public class API {
                         .then()
                         .extract()
                         .response();
-        LOG.info(
+        log.info(
                 "Post to {} with data {}: get response: {}",
                 endPoint,
                 bodyData.toString(),
@@ -52,7 +50,7 @@ public class API {
                         .then()
                         .extract()
                         .response();
-        LOG.info(
+        log.info(
                 "Post to {} with data {}: get response: {}",
                 newEndPoint,
                 bodyData.toString(),
@@ -71,7 +69,7 @@ public class API {
                         .statusCode(200)
                         .extract()
                         .response();
-        LOG.info(
+        log.info(
                 "Put to {} with data {}: get response: {}",
                 newEndPoint,
                 bodyData.toString(),
@@ -80,7 +78,7 @@ public class API {
     }
 
     protected Response get() {
-        LOG.info("Get to {} with data {}", endPoint);
+        log.info("Get to {} with data {}", endPoint);
         Response res =
                 given().spec(specification)
                         .when()
@@ -89,7 +87,7 @@ public class API {
                         .statusCode(200)
                         .extract()
                         .response();
-        LOG.info("Put to {}: get response: {}", endPoint, res.asString());
+        log.info("Put to {}: get response: {}", endPoint, res.asString());
         return res;
     }
 }

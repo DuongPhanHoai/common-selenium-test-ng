@@ -1,11 +1,10 @@
 package com.david.test.core.element;
 
 import org.openqa.selenium.*;
-
-import com.david.test.core.driver.DriverManager;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class Element {
-    protected DriverManager driverManager;
+    protected RemoteWebDriver driver;
     protected String name;
 
     protected By by;
@@ -14,8 +13,8 @@ public class Element {
         this.by = by;
     }
 
-    public Element(DriverManager driverManager, String name) {
-        this.driverManager = driverManager;
+    public Element(RemoteWebDriver driver, String name) {
+        this.driver = driver;
         this.name = name;
     }
 }

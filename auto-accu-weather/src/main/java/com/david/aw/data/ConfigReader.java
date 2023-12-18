@@ -5,12 +5,12 @@ import java.io.InputStream;
 import java.util.Objects;
 import java.util.Properties;
 
-import org.slf4j.LoggerFactory;
-
 import com.david.test.core.util.LogUtils;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class ConfigReader {
-    protected static final org.slf4j.Logger LOG = LoggerFactory.getLogger(ConfigReader.class);
     static ServerInfo serverInfo = null;
 
     public static ServerInfo getServerInfo(String env) {
@@ -27,7 +27,7 @@ public class ConfigReader {
                     return serverInfo;
                 }
             } catch (IOException e) {
-                LOG.error(LogUtils.getFullStack(e));
+                log.error(LogUtils.getFullStack(e));
             }
             // Cannot read
             serverInfo = ServerInfo.builder().build();

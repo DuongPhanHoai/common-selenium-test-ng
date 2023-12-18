@@ -1,18 +1,18 @@
 package com.david.test.core.base;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.david.test.core.driver.DriverManager;
 import com.david.test.core.element.ElementFactory;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 /** Page model, loading element on the construction */
 public class Page {
-    protected static final Logger LOG = LoggerFactory.getLogger(Page.class);
-    protected DriverManager driverManager;
+    protected RemoteWebDriver driver;
 
-    public Page(DriverManager driverManager) {
-        this.driverManager = driverManager;
-        ElementFactory.loadElements(driverManager, this);
+    public Page(RemoteWebDriver driver) {
+        this.driver = driver;
+        ElementFactory.loadElements(driver, this);
     }
 }

@@ -3,16 +3,16 @@ package com.david.aw.page;
 import java.util.*;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.david.aw.dto.DayWeatherInfo;
 import com.david.test.core.base.Page;
-import com.david.test.core.driver.DriverManager;
 import com.david.test.core.element.WElement;
 
 public class DayDetailPage extends Page {
-    public DayDetailPage(DriverManager driverManager) {
-        super(driverManager);
+    public DayDetailPage(RemoteWebDriver driver) {
+        super(driver);
     }
 
     @FindBy(css = ".pagination-button.chevron-icon.right")
@@ -81,8 +81,7 @@ public class DayDetailPage extends Page {
                         .dayRealFeel(nightRealFeel.getText())
                         .build();
         DayWeatherInfo dayLight = null;
-        List<WebElement> foundItems =
-                driverManager.getDriver().findElementsByClassName("half-day-card");
+        List<WebElement> foundItems = driver.findElementsByClassName("half-day-card");
         if (foundItems.size() > 1 && dayTemperature.isDisplayed(1)) {
             dayLight =
                     DayWeatherInfo.builder()

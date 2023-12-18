@@ -4,13 +4,14 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.david.test.core.util.LogUtils;
+import com.david.test.core.util.TimeUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 public class WebDriverManager extends DriverManager {
-    protected static final Logger LOG = LoggerFactory.getLogger(WebDriverManager.class);
 
     public WebDriverManager(RemoteWebDriver driver) {
         super(driver);
@@ -24,7 +25,7 @@ public class WebDriverManager extends DriverManager {
             if (tabsNum > index) {
                 getDriver().switchTo().window(handles.get(index));
                 break;
-            } else sleep(1);
+            } else TimeUtil.sleep(1);
         }
     }
 
@@ -32,7 +33,7 @@ public class WebDriverManager extends DriverManager {
         try {
             Runtime.getRuntime().exec("taskkill /im chromedriver.exe /f");
         } catch (IOException e) {
-            LOG.error(LogUtils.getFullStack(e));
+            log.error(LogUtils.getFullStack(e));
         }
     }
 }
