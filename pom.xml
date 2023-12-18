@@ -4,12 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.duongphanhoai</groupId>
-    <artifactId>common-test-ng-framework</artifactId>
+    <artifactId>accu-weather-auto-test</artifactId>
     <packaging>pom</packaging>
     <version>0.1.0</version>
-    <name>common-test-ng-framework</name>
+    <name>accu-weather-auto-test</name>
     <url>https://github.com/DuongPhanHoai/common-selenium-test-ng</url>
-    <description>Google Sheet report libraries</description>
+    <description>Accu Weather Automation test</description>
     <developers>
         <developer>
             <id>duongphan</id>
@@ -35,11 +35,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>6.10</testng.version>
         <selenium.java>3.9.1</selenium.java>
-        <lombok.version>0.11.6</lombok.version>
+        <lombok.version>1.18.20</lombok.version>
         <rest.assured.version>3.0.0</rest.assured.version>
-        <org.json.version>20210307</org.json.version>
+        <gson.version>2.9.0</gson.version>
         <org.apache.commons.version>3.12.0</org.apache.commons.version>
-        <slf4j.version>1.7.7</slf4j.version>
+        <slf4j.version>2.0.7</slf4j.version>
+        <commons.codec.version>1.15</commons.codec.version>
+        <webdrivermanager.version>5.5.2</webdrivermanager.version>
 
         <org.apache.commons.version>3.12.0</org.apache.commons.version>
 
@@ -51,7 +53,7 @@
     <modules>
         <module>auto-core-lib</module>
         <module>auto-core-test</module>
-        <module>auto-project-sample</module>
+        <module>auto-accu-weather</module>
     </modules>
 
     <dependencyManagement>
@@ -83,12 +85,22 @@
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
 
             <!--Import utils modules-->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${org.apache.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
             </dependency>
 
             <!--Import lombok modules-->
@@ -99,6 +111,13 @@
                 <scope>provided</scope>
             </dependency>
 
+            <!--Import webdrivermanager modules-->
+            <dependency>
+                <groupId>io.github.bonigarcia</groupId>
+                <artifactId>webdrivermanager</artifactId>
+                <version>${webdrivermanager.version}</version>
+            </dependency>
+
             <!--Import REST API test modules-->
             <dependency>
                 <groupId>io.rest-assured</groupId>
@@ -106,9 +125,9 @@
                 <version>${rest.assured.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.json</groupId>
-                <artifactId>json</artifactId>
-                <version>${org.json.version}</version>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
             </dependency>
 
 

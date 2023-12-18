@@ -1,11 +1,14 @@
 package com.david.test.core;
 
+import java.util.Objects;
+
 import org.apache.commons.lang3.StringUtils;
-import org.hamcrest.Matchers;
-import org.json.JSONObject;
-import org.testng.annotations.BeforeMethod;
+
+import com.google.gson.JsonObject;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -13,59 +16,59 @@ import io.restassured.specification.RequestSpecification;
  * The sample of BaseAPITest - login before running script - store specification for the inheritance
  */
 public abstract class BaseAPITest {
-
     /** Store auth_token after logging-in to the system */
-    static String auth_token;
+    static String accessToken;
 
     /** Store the RequestSpecification for all inheritance */
     static RequestSpecification specification;
 
-    public static RequestSpecification getSpecification() {
-        return specification;
-    }
+    public static RequestSpecification getSpecification(
+            String email, String password, String baseURL, String loginEndPoint) throws Exception {
 
-    /** Run before all test to */
-    @BeforeMethod(alwaysRun = true)
-    protected void beforeMethod() {
-        initSpecification();
-    }
+        if (Objects.isNull(specification)) {
+            if (StringUtils.isEmpty(accessToken)) {
+                JsonObject loginData = new JsonObject();
 
-    /** Init the Specification with Token */
-    protected void initSpecification() {
+                loginData.addProperty("email", email);
+                loginData.addProperty("password", password);
 
-        if (StringUtils.isNotBlank(auth_token)) {
-            JSONObject loginData = new JSONObject();
+                String jsonContent = loginData.toString();
 
-            loginData.put("usr", "ABC");
-            loginData.put("key", "GetFromPropertiesFile");
+                // Get the connectSID
+                Response authResponse =
+                        RestAssured.given()
+                                .baseUri(baseURL)
+                                .header("Content-Type", "application/json")
+                                .body(loginData.toString())
+                                .post(loginEndPoint)
+                                .then()
+                                .log()
+                                .ifError()
+                                .statusCode(200)
+                                . // authorization_token value is not null - has a value
+                                extract()
+                                .response();
+                Headers headers = authResponse.headers();
 
-            // Do some request or something to getToken
-            Response response =
-                    RestAssured.given()
-                            .baseUri("http://google.com/api")
-                            .header("Content-Type", "application/json")
-                            .body(loginData.toString())
-                            .post("/login")
-                            .then()
-                            .log()
-                            .ifError()
-                            .statusCode(200)
-                            .contentType("application/vnd.api+json")
-                            .body("$", Matchers.hasKey("authorization_token"))
-                            . // authorization_token is present in the response
-                            body(
-                                    "any { it.key == 'authorization_token' }",
-                                    Matchers.is(Matchers.notNullValue()))
-                            . // authorization_token value is not null - has a value
-                            extract()
-                            .response();
+                for (Header header : headers) {
+                    if (header.getName().equals("Set-Cookie")
+                            && header.getValue().startsWith("token")) {
+                        String setCookie = header.getValue();
+                        accessToken = setCookie.substring(6, setCookie.indexOf(';'));
+                        break;
+                    }
+                }
+            }
 
-            auth_token = response.path("authorization_token").toString();
+            if (Objects.nonNull(accessToken))
+                // Create the specification with the connectSID
+                specification =
+                        RestAssured.given()
+                                .baseUri(baseURL)
+                                .header("content-type", "application/json")
+                                .header("authorization", "Bearer " + accessToken);
+            else throw new Exception("Login failed, please check");
         }
-
-        specification =
-                RestAssured.given()
-                        .baseUri("http://google.com/api")
-                        .header("Authorization", "Bearer " + auth_token);
+        return specification;
     }
 }

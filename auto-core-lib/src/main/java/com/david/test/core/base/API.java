@@ -22,18 +22,74 @@ public class API {
     /**
      * Wrap for post method easy use
      *
-     * @param bodyData input JSONObject
+     * @param bodyData input JsonObject
      * @return Response
      */
     protected Response post(Object bodyData) {
-        LOG.info("Post to {} with data {}", endPoint, bodyData.toString());
-        return given().spec(specification)
-                .body(bodyData)
-                .when()
-                .post(endPoint)
-                .then()
-                .statusCode(200)
-                .extract()
-                .response();
+        Response res =
+                given().spec(specification)
+                        .body(bodyData)
+                        .when()
+                        .post(endPoint)
+                        .then()
+                        .extract()
+                        .response();
+        LOG.info(
+                "Post to {} with data {}: get response: {}",
+                endPoint,
+                bodyData.toString(),
+                res.asString());
+        return res;
+    }
+
+    protected Response post(Object bodyData, String additionalEndPoint) {
+        String newEndPoint = endPoint + additionalEndPoint;
+        Response res =
+                given().spec(specification)
+                        .body(bodyData)
+                        .when()
+                        .post(newEndPoint)
+                        .then()
+                        .extract()
+                        .response();
+        LOG.info(
+                "Post to {} with data {}: get response: {}",
+                newEndPoint,
+                bodyData.toString(),
+                res.asString());
+        return res;
+    }
+
+    protected Response put(Object bodyData, String additionalEndPoint) {
+        String newEndPoint = endPoint + additionalEndPoint;
+        Response res =
+                given().spec(specification)
+                        .body(bodyData)
+                        .when()
+                        .put(newEndPoint)
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        LOG.info(
+                "Put to {} with data {}: get response: {}",
+                newEndPoint,
+                bodyData.toString(),
+                res.asString());
+        return res;
+    }
+
+    protected Response get() {
+        LOG.info("Get to {} with data {}", endPoint);
+        Response res =
+                given().spec(specification)
+                        .when()
+                        .get(endPoint)
+                        .then()
+                        .statusCode(200)
+                        .extract()
+                        .response();
+        LOG.info("Put to {}: get response: {}", endPoint, res.asString());
+        return res;
     }
 }
