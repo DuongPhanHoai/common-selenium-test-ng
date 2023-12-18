@@ -16,4 +16,8 @@ API Testing
 > Also can set as tamplate to auto gen the template configuration
 2 - Server info is store in resource/[env]/config.properties (env=dev/staging/production)
 
-Execution command line: mvn clean test -pl auto-accu-weather -Dtest=*
+To run the test, 
+1- plz open this project with IntelliJ
+2- open the module auto-accu-weather
+3- open the class com.david.aw.test.web.DayTests
+4- trigger the test scanAllDays
