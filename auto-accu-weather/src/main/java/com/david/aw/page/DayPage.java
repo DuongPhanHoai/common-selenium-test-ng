@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import com.david.aw.dto.DayInfo;
@@ -21,7 +20,7 @@ public class DayPage extends Page {
     @FindBy(css = ".module-title")
     WElement moduleTitle;
 
-    @FindBy(css = ".page-content.content-module")
+    @FindBy(xpath = "//div[@class='page-content content-module']")
     WElement moduleContent;
 
     @FindBy(xpath = "//*[contains(@class,'daily-forecast-card')]//*[@class='icon']")
@@ -34,40 +33,11 @@ public class DayPage extends Page {
     public List<DayInfo> getAllDayInfos() {
         List<DayInfo> dayInfos = new ArrayList<>();
         List<WebElement> dayElements =
-                moduleContent.findElements(new By.ByClassName("daily-wrapper"));
+                moduleContent.findElements(new By.ByXPath("//*[@class='module-header sub date']"));
         for (WebElement dayElement : dayElements) {
-            dayInfos.add(
-                    DayInfo.builder()
-                            .day(
-                                    dayElement
-                                            .findElement(
-                                                    new By.ByXPath(
-                                                            "//span[@class='module-header sub date']"))
-                                            .getText())
-                            .build());
+            dayInfos.add(DayInfo.builder().day(dayElement.getText()).build());
         }
         return dayInfos;
-    }
-
-    public boolean clickDayDetail(String dayValue) {
-        List<WebElement> dayElements =
-                moduleContent.findElements(new By.ByClassName("daily-wrapper"));
-        for (WebElement dayElement : dayElements) {
-            String dayTitle = dayElement.findElement(new By.ByClassName("date")).getText();
-            if (dayTitle.equals(dayValue)) {
-                WebElement found =
-                        dayElement
-                                .findElement(new By.ByClassName("daily-forecast-card"))
-                                .findElement(new By.ByTagName("svg"));
-                // scroll to screen before click
-                Actions actions = new Actions(driverManager.getDriver());
-                actions.moveToElement(found);
-                actions.perform();
-                found.click();
-                return true;
-            }
-        }
-        return false;
     }
 
     public void clickFirstDayDetail() {

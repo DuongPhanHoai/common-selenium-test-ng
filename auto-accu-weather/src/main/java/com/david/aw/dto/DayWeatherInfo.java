@@ -8,6 +8,7 @@ import lombok.Data;
 public class DayWeatherInfo {
     String type;
     String temperature;
+    int fahrenheit;
     String weatherStatus;
     String dayRealFeel;
     String humidity;
@@ -19,5 +20,17 @@ public class DayWeatherInfo {
             return "Clear-Cloudy";
         }
         return dataSource;
+    }
+
+    public boolean validateTemperature() {
+        // Check if temperature is Celsius
+        if (!temperature.contains("°")) {
+            return false;
+        }
+        // Convert fahrenheit
+        fahrenheit =
+                ((Integer.parseInt(temperature.substring(0, temperature.indexOf("°"))) * 9) / 5)
+                        + 32;
+        return true;
     }
 }

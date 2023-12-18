@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,7 +47,7 @@ public class WElement extends Element implements WebElement {
                 .until(ExpectedConditions.elementToBeClickable(findElement()))
                 .click();
         LOG.info("Click {}", instanceString);
-        DriverManager.sleep(1);
+        DriverManager.sleep(2);
     }
 
     @Override
@@ -105,6 +106,24 @@ public class WElement extends Element implements WebElement {
         try {
             WebElement e =
                     driverManager.getWait().until(ExpectedConditions.presenceOfElementLocated(by));
+            if (e.isDisplayed()) {
+                LOG.info("{} displayed", instanceString);
+                return true;
+            } else {
+                LOG.info("{} did not displayed", instanceString);
+                return false;
+            }
+        } catch (TimeoutException e) {
+            LOG.debug("Get WElement Exception ", e);
+            return false;
+        }
+    }
+
+    public boolean isDisplayed(int second) {
+        try {
+            WebElement e =
+                    new WebDriverWait(driverManager.getDriver(), second)
+                            .until(ExpectedConditions.presenceOfElementLocated(by));
             if (e.isDisplayed()) {
                 LOG.info("{} displayed", instanceString);
                 return true;
