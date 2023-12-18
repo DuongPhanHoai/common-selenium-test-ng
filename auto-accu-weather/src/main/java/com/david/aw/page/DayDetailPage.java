@@ -2,6 +2,7 @@ package com.david.aw.page;
 
 import java.util.*;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import com.david.aw.dto.DayWeatherInfo;
@@ -80,7 +81,9 @@ public class DayDetailPage extends Page {
                         .dayRealFeel(nightRealFeel.getText())
                         .build();
         DayWeatherInfo dayLight = null;
-        if (dayTemperature.isDisplayed(1)) {
+        List<WebElement> foundItems =
+                driverManager.getDriver().findElementsByClassName("half-day-card");
+        if (foundItems.size() > 1 && dayTemperature.isDisplayed(1)) {
             dayLight =
                     DayWeatherInfo.builder()
                             .type("Day")

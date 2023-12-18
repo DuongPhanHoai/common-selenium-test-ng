@@ -1,10 +1,10 @@
 package com.david.aw.test.web;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +22,7 @@ import com.david.aw.page.DayPage;
 import com.david.aw.page.HomePage;
 import com.david.aw.test.BaseAWTest;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
@@ -38,13 +39,15 @@ public class DayTests extends BaseAWTest {
         DayDetailPage dayDetailPage = new DayDetailPage(getWebDriverManager());
 
         // Load old data from file
-        List<DayCollection> dayCollections;
+        List<DayCollection> dayCollections = null;
         File file = new File(SCAN_ALL_DAYS_JSON);
         Gson gson = new Gson();
         if (file.exists() && !file.isDirectory()) {
             JsonReader reader = new JsonReader(new FileReader(file));
             dayCollections = gson.fromJson(reader, REVIEW_TYPE);
-        } else {
+            reader.close();
+        }
+        if (Objects.isNull(dayCollections)) {
             dayCollections = new ArrayList<>();
         }
 
@@ -67,7 +70,7 @@ public class DayTests extends BaseAWTest {
         dayPage.clickFirstDayDetail();
         dayInfos.get(0).setDayWeatherInfos(dayDetailPage.getDayInfo());
         // 3.1 Loading for each day
-        for (int i = 1; i < dayInfos.size() && i < 2; i++) {
+        for (int i = 1; i < dayInfos.size() && i < 1; i++) {
             DayInfo dayInfo = dayInfos.get(i);
             log.info("scanning {}", dayInfo.getDay());
             Assert.assertEquals(dayInfo.getDay(), dayDetailPage.clickNextDay());
@@ -87,11 +90,19 @@ public class DayTests extends BaseAWTest {
                 }
         }
         // 5. The test should be supported to execute at least every 1 hour in a day.
+        // Note this should use Jenkins CI/CD ot Task schedule from Windows/Linux/MacOS
+
         // 6. To save in a file all information retrieved.
         dayCollections.add(DayCollection.builder().dayInfos(dayInfos).build());
-        gson.toJson(dayInfos, new FileWriter(SCAN_ALL_DAYS_JSON));
 
-        // 7. Create a summary report.
+        try (Writer writer =
+                Files.newBufferedWriter(Paths.get(SCAN_ALL_DAYS_JSON), StandardCharsets.UTF_8)) {
+            Gson gwrite = new GsonBuilder().setPrettyPrinting().create();
+            String temp = gwrite.toJson(dayCollections, ArrayList.class);
+            gwrite.toJson(dayCollections, writer);
+        }
+
+        // 7. Create a summary report. > Integrate with allure report
 
     }
 }
