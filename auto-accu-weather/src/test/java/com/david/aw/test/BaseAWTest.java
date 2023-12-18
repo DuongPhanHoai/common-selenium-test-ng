@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class BaseAWTest extends BaseWebTest {
-    protected ServerInfo serverInfo;
+    protected ServerInfo serverInfo = ConfigReader.getServerInfo(env);
     static String env = "production";
 
     @BeforeSuite(alwaysRun = true)

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -34,7 +33,6 @@ public class DayTests extends BaseAWTest {
 
     @Test(priority = 1)
     public void scanAllDays() {
-        RemoteWebDriver driver = initDriver("chrome");
         // Declare Pages
         HomePage homePage = new HomePage(driver);
         DayPage dayPage = new DayPage(driver);
@@ -76,7 +74,7 @@ public class DayTests extends BaseAWTest {
         dayPage.clickFirstDayDetail();
         dayInfos.get(0).setDayWeatherInfos(dayDetailPage.getDayInfo());
         // 3.1 Loading for each day
-        for (int i = 1; i < dayInfos.size() && i < 1; i++) {
+        for (int i = 1; i < dayInfos.size(); i++) {
             DayInfo dayInfo = dayInfos.get(i);
             log.info("scanning {}", dayInfo.getDay());
             Assert.assertEquals(dayInfo.getDay(), dayDetailPage.clickNextDay());

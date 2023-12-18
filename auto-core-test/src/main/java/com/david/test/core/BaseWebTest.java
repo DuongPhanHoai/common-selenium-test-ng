@@ -14,6 +14,9 @@ import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.david.test.core.driver.WebDriverManager;
 import com.david.test.core.util.LogUtils;
@@ -31,9 +34,11 @@ public abstract class BaseWebTest {
         return webDriverManager;
     }
 
-    // @Parameters({"browser"})
-    // @BeforeMethod(alwaysRun = true)
-    // protected void beforeMethod(@Optional("chrome") String browser) { initDriver(browser); }
+    @Parameters({"browser"})
+    @BeforeMethod(alwaysRun = true)
+    protected void beforeMethod(@Optional("chrome") String browser) {
+        initDriver(browser);
+    }
 
     @AfterMethod(alwaysRun = true)
     protected synchronized void baseAfterMethod() {

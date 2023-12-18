@@ -49,6 +49,8 @@
         <maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
         <sonar.maven.plugin.version>3.6.0.1398</sonar.maven.plugin.version>
         <spotless.version>2.9.0</spotless.version>
+        <allure.version>2.10.0</allure.version>
+        <aspectjweaver.version>1.9.4</aspectjweaver.version>
     </properties>
 
     <modules>
@@ -136,7 +138,21 @@
                 <version>${gson.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-testng</artifactId>
+                <version>${allure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-attachments</artifactId>
+                <version>${allure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectjweaver.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <distributionManagement>

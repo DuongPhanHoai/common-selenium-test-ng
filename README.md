@@ -21,3 +21,12 @@ To run the test,
 2- open the module auto-accu-weather
 3- open the class com.david.aw.test.web.DayTests
 4- trigger the test scanAllDays
+
+Run by command line: mvn clean test -pl auto-accu-weather -Dtest=*
+
+File detail save in auto-accu-weather/scanAllDays.json
+
+
+// For history report I am configuring the allure report to have history
+
+

@@ -29,11 +29,6 @@ public class HomePage extends Page {
     WElement topRightMenuItem_Daily;
 
     public void launchHome(ServerInfo serverInfo) {
-        if (Objects.isNull(driver)) {
-            log.error("driver is null");
-        } else {
-            log.error("driver is not null, ready for {}", serverInfo.getBaseURL());
-        }
         driver.get(serverInfo.getBaseURL());
         log.info("Successfully launching page");
     }
