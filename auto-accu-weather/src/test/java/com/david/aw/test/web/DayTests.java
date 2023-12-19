@@ -31,6 +31,8 @@ public class DayTests extends BaseAWTest {
     static final String SCAN_ALL_DAYS_JSON = "scanAllDays.json";
     private static final Type REVIEW_TYPE = new TypeToken<List<DayCollection>>() {}.getType();
 
+    private static final int MAX_GET_DAYS = 5;
+
     @Test(
             groups = {"regression", "accuweather"},
             description = "TC[Demo] Open home > Daily > Collect list > Get detail in list")
@@ -76,7 +78,7 @@ public class DayTests extends BaseAWTest {
         dayPage.clickFirstDayDetail();
         dayInfos.get(0).setDayWeatherInfos(dayDetailPage.getDayInfo());
         // 3.1 Loading for each day
-        for (int i = 1; i < dayInfos.size(); i++) {
+        for (int i = 1; i < dayInfos.size() && i < MAX_GET_DAYS; i++) {
             DayInfo dayInfo = dayInfos.get(i);
             log.info("scanning {}", dayInfo.getDay());
             Assert.assertEquals(dayInfo.getDay(), dayDetailPage.clickNextDay());

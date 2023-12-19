@@ -31,9 +31,14 @@ III- Report
 Report store at auto-accu-weather\allure-results
 Run command to generate report: mvn -pl auto-accu-weather allure:report
 Run command to open: mvn -pl auto-accu-weather allure:serve
+Support history report
 
+VI- Note
+For faster I put MAX_GET_DAYS = 5 to limit getting max 5 first to save running time demo
+Increase that number can help to get more data
 
-
-// For history report I am configuring the allure report to have history
+Recommendation
+- This is UI automation but cover the lopping steps to get info so long, which increase risk of failing
+- To increase the stability, for the test like this I suggest using API which can be re-try easier on fail
 
 
