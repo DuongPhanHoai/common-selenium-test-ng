@@ -30,6 +30,7 @@ Using gson to save file
 III- Report
 Report store at auto-accu-weather\allure-results
 Run command to generate report: mvn -pl auto-accu-weather allure:report
+Before open the report, need to generate
 Run command to open: mvn -pl auto-accu-weather allure:serve
 Support history report
 
