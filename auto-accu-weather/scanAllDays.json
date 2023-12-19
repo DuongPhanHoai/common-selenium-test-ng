@@ -664,5 +664,227 @@
         "day": "2/1"
       }
     ]
+  },
+  {
+    "getTime": 1702997908233,
+    "dayInfos": [
+      {
+        "day": "12/19",
+        "dayWeatherInfos": [
+          {
+            "type": "Night",
+            "temperature": "25°Lo",
+            "fahrenheit": 77,
+            "weatherStatus": "Clear-Cloudy",
+            "dayRealFeel": "RealFeel® 29°",
+            "humidity": "77%"
+          }
+        ]
+      },
+      {
+        "day": "12/20",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "33°Hi",
+            "fahrenheit": 91,
+            "weatherStatus": "/images/weathericons/2.svg",
+            "dayRealFeel": "RealFeel® 38°\nRealFeel Shade™ 35°",
+            "humidity": "68%"
+          },
+          {
+            "type": "Night",
+            "temperature": "25°Lo",
+            "fahrenheit": 77,
+            "weatherStatus": "Clear-Cloudy",
+            "dayRealFeel": "RealFeel® 28°",
+            "humidity": "78%"
+          }
+        ]
+      },
+      {
+        "day": "12/21",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "33°Hi",
+            "fahrenheit": 91,
+            "weatherStatus": "/images/weathericons/4.svg",
+            "dayRealFeel": "RealFeel® 35°\nRealFeel Shade™ 34°",
+            "humidity": "65%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "Clear-Cloudy",
+            "dayRealFeel": "RealFeel® 27°",
+            "humidity": "65%"
+          }
+        ]
+      },
+      {
+        "day": "12/22",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "34°Hi",
+            "fahrenheit": 93,
+            "weatherStatus": "/images/weathericons/12.svg",
+            "dayRealFeel": "RealFeel® 38°\nRealFeel Shade™ 36°",
+            "humidity": "62%"
+          },
+          {
+            "type": "Night",
+            "temperature": "25°Lo",
+            "fahrenheit": 77,
+            "weatherStatus": "/images/weathericons/12.svg",
+            "dayRealFeel": "RealFeel® 27°",
+            "humidity": "71%"
+          }
+        ]
+      },
+      {
+        "day": "12/23",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "31°Hi",
+            "fahrenheit": 87,
+            "weatherStatus": "/images/weathericons/18.svg",
+            "dayRealFeel": "RealFeel® 33°\nRealFeel Shade™ 33°",
+            "humidity": "76%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "/images/weathericons/40.svg",
+            "dayRealFeel": "RealFeel® 27°",
+            "humidity": "80%"
+          }
+        ]
+      },
+      {
+        "day": "12/24"
+      },
+      {
+        "day": "12/25"
+      },
+      {
+        "day": "12/26"
+      },
+      {
+        "day": "12/27"
+      },
+      {
+        "day": "12/28"
+      },
+      {
+        "day": "12/29"
+      },
+      {
+        "day": "12/30"
+      },
+      {
+        "day": "12/31"
+      },
+      {
+        "day": "1/1"
+      },
+      {
+        "day": "1/2"
+      },
+      {
+        "day": "1/3"
+      },
+      {
+        "day": "1/4"
+      },
+      {
+        "day": "1/5"
+      },
+      {
+        "day": "1/6"
+      },
+      {
+        "day": "1/7"
+      },
+      {
+        "day": "1/8"
+      },
+      {
+        "day": "1/9"
+      },
+      {
+        "day": "1/10"
+      },
+      {
+        "day": "1/11"
+      },
+      {
+        "day": "1/12"
+      },
+      {
+        "day": "1/13"
+      },
+      {
+        "day": "1/14"
+      },
+      {
+        "day": "1/15"
+      },
+      {
+        "day": "1/16"
+      },
+      {
+        "day": "1/17"
+      },
+      {
+        "day": "1/18"
+      },
+      {
+        "day": "1/19"
+      },
+      {
+        "day": "1/20"
+      },
+      {
+        "day": "1/21"
+      },
+      {
+        "day": "1/22"
+      },
+      {
+        "day": "1/23"
+      },
+      {
+        "day": "1/24"
+      },
+      {
+        "day": "1/25"
+      },
+      {
+        "day": "1/26"
+      },
+      {
+        "day": "1/27"
+      },
+      {
+        "day": "1/28"
+      },
+      {
+        "day": "1/29"
+      },
+      {
+        "day": "1/30"
+      },
+      {
+        "day": "1/31"
+      },
+      {
+        "day": "2/1"
+      }
+    ]
   }
 ]
