@@ -118,7 +118,7 @@ public class DayDetailPage extends Page {
     @Step("Click Day & Night button")
     public void clickDayNight() {
         dayNightButton.click();
-        List<WebElement> stillAppears = driver.findElementsByXPath(DAY_NIGHT_XPATH);
+        List<WebElement> stillAppears = dayNightButton.quickDriverFindByXpath(DAY_NIGHT_XPATH);
         // Sometime click but not affect (unstable browser) need re-try once
         if (stillAppears.size() > 0) {
             stillAppears.get(0).click();
@@ -140,11 +140,12 @@ public class DayDetailPage extends Page {
     @Step("Click Day & Night button")
     public void clickDayMorningButton() {
         dayMorningButton.click();
-        List<WebElement> stillAppears = driver.findElementsByXPath(HUMID_XPATH);
         // Sometime click but not affect (unstable browser) need re-try once
-        if (stillAppears.size() == 0) {
-            dayMorningButton.click();
-        }
+        if (!humidity.isDisplayed())
+            try {
+                nightEveningButton.click();
+            } catch (Exception e) {
+            }
     }
 
     @Step("Go to the next day")

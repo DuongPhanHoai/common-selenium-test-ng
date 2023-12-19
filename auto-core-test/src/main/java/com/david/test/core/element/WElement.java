@@ -1,6 +1,7 @@
 package com.david.test.core.element;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -46,6 +47,7 @@ public class WElement extends Element implements WebElement {
 
     static final int MAX_TRY_CLICK = 5;
 
+    static final int CLICK_SLEEP_MILLISECOND = 1280;
     @Override
     public void click() {
         for (int i = 0; i < MAX_TRY_CLICK; i++) {
@@ -53,11 +55,12 @@ public class WElement extends Element implements WebElement {
                 Actions actions = new Actions(driver);
                 actions.moveToElement(findElement()).click().build().perform();
                 log.info("Click {}", instanceString);
+                TimeUtil.sleepMilliseconds(CLICK_SLEEP_MILLISECOND);
                 return;
             } catch (Exception e) {
                 log.info("Failed on click {}:", instanceString, e);
             }
-            TimeUtil.sleep(2);
+            TimeUtil.sleep(CLICK_SLEEP_MILLISECOND);
         }
     }
 
@@ -167,5 +170,13 @@ public class WElement extends Element implements WebElement {
     @Override
     public <X> X getScreenshotAs(OutputType<X> outputType) throws WebDriverException {
         return null;
+    }
+
+    /** Quick support findByCurrentDriver Please note that not find the child of Element */
+    public List<WebElement> quickDriverFindByXpath(String xpath) {
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+        List<WebElement> foundItems = driver.findElementsByXPath(xpath);
+        driver.manage().timeouts().implicitlyWait(TimeUtil.WAIT_SEC, TimeUnit.SECONDS);
+        return foundItems;
     }
 }
