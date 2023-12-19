@@ -48,6 +48,7 @@ public class WElement extends Element implements WebElement {
     static final int MAX_TRY_CLICK = 5;
 
     static final int CLICK_SLEEP_MILLISECOND = 1280;
+
     @Override
     public void click() {
         for (int i = 0; i < MAX_TRY_CLICK; i++) {

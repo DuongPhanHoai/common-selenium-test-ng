@@ -25,14 +25,16 @@ Windows: mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFil
 mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/alluretest.xml"
 
 File detail save in auto-accu-weather/scanAllDays.json
-Using gson to save file
+Using gson to save file, the limitation appear with special character. Beside the consequence, gson is good lib can merge to object by reflection (mean no need setter methods for the target Class)
 
 III- Report
 Report store at auto-accu-weather\allure-results
 Run command to generate report: mvn -pl auto-accu-weather allure:report
 Before open the report, need to generate
 Run command to open: mvn -pl auto-accu-weather allure:serve
-Support history report
+
+Note: to support history report will need to copy manually the history directory from previous report to the current result
+If we have source control we can write some batch to do it automatically
 
 VI- Note
 For faster I put MAX_GET_DAYS = 5 to limit getting max 5 first to save running time demo
