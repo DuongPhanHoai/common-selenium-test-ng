@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -47,5 +48,27 @@ public class DayPage extends Page {
     @Step("Click to the first day arrow button")
     public void clickFirstDayDetail() {
         firstDayDetail.click();
+    }
+
+    @Step("Click day detail by title")
+    public boolean clickDayDetail(String dayValue) {
+        List<WebElement> dayElements =
+                moduleContent.findElements(new By.ByClassName("daily-wrapper"));
+        for (WebElement dayElement : dayElements) {
+            String dayTitle = dayElement.findElement(new By.ByClassName("date")).getText();
+            if (dayTitle.equals(dayValue)) {
+                WebElement found =
+                        dayElement
+                                .findElement(new By.ByClassName("daily-forecast-card"))
+                                .findElement(new By.ByTagName("svg"));
+                // scroll to screen before click
+                Actions actions = new Actions(driver);
+                actions.moveToElement(found);
+                actions.perform();
+                found.click();
+                return true;
+            }
+        }
+        return false;
     }
 }
