@@ -3,6 +3,7 @@ package com.david.test.core.element;
 import java.util.List;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -49,8 +50,10 @@ public class WElement extends Element implements WebElement {
     public void click() {
         for (int i = 0; i < MAX_TRY_CLICK; i++) {
             try {
-                wait.until(ExpectedConditions.elementToBeClickable(findElement())).click();
+                Actions actions = new Actions(driver);
+                actions.moveToElement(findElement()).click().build().perform();
                 log.info("Click {}", instanceString);
+                return;
             } catch (Exception e) {
                 log.info("Failed on click {}:", instanceString, e);
             }

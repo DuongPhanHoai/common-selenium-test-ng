@@ -9,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import com.david.aw.dto.DayWeatherInfo;
 import com.david.test.core.base.Page;
 import com.david.test.core.element.WElement;
+import com.david.test.core.util.TimeUtil;
 
 import io.qameta.allure.Step;
 
@@ -16,6 +17,12 @@ public class DayDetailPage extends Page {
     public DayDetailPage(RemoteWebDriver driver) {
         super(driver);
     }
+
+    static final String DAY_NIGHT_XPATH =
+            "//div[contains(@class,'half-day-card ')]//*[@class='quarter-day-ctas']//a[contains(text(),'Day & Night')]";
+
+    @FindBy(xpath = DAY_NIGHT_XPATH)
+    WElement dayNightButton;
 
     @FindBy(css = ".pagination-button.chevron-icon.right")
     WElement nextDay;
@@ -43,12 +50,10 @@ public class DayDetailPage extends Page {
                     "//div[contains(@class,'half-day-card ')]//*[@class='quarter-day-ctas']//a[contains(text(),'Morning') or contains(text(),'Afternoon')]")
     WElement dayMorningButton;
 
-    @FindBy(
-            xpath =
-                    "//div[contains(@class,'half-day-card ')]//*[@class='quarter-day-ctas']//a[contains(text(),'Day & Night')]")
-    WElement dayNightButton;
+    static final String HUMID_XPATH =
+            "//p[contains(text(),'Humidity') and @class='panel-item']//span";
 
-    @FindBy(xpath = "//p[contains(text(),'Humidity') and @class='panel-item']//span")
+    @FindBy(xpath = HUMID_XPATH)
     WElement humidity;
 
     @FindBy(
@@ -98,16 +103,48 @@ public class DayDetailPage extends Page {
         }
         // Get humid
         if (Objects.nonNull(dayLight)) {
-            dayMorningButton.click();
+            clickDayMorningButton();
             dayLight.setHumidity(humidity.getText());
             dayWeatherInfos.add(dayLight);
-            dayNightButton.click();
+            clickDayNight();
         }
-        nightEveningButton.click();
+        clickNightEveningButton();
         night.setHumidity(humidity.getText());
         dayWeatherInfos.add(night);
-        dayNightButton.click();
+        clickDayNight();
         return dayWeatherInfos;
+    }
+
+    @Step("Click Day & Night button")
+    public void clickDayNight() {
+        dayNightButton.click();
+        List<WebElement> stillAppears = driver.findElementsByXPath(DAY_NIGHT_XPATH);
+        // Sometime click but not affect (unstable browser) need re-try once
+        if (stillAppears.size() > 0) {
+            stillAppears.get(0).click();
+            TimeUtil.sleep(2);
+        }
+    }
+
+    @Step("Click Day & Night button")
+    public void clickNightEveningButton() {
+        nightEveningButton.click();
+        // Sometime click but not affect (unstable browser) need re-try once
+        if (!humidity.isDisplayed())
+            try {
+                nightEveningButton.click();
+            } catch (Exception e) {
+            }
+    }
+
+    @Step("Click Day & Night button")
+    public void clickDayMorningButton() {
+        dayMorningButton.click();
+        List<WebElement> stillAppears = driver.findElementsByXPath(HUMID_XPATH);
+        // Sometime click but not affect (unstable browser) need re-try once
+        if (stillAppears.size() == 0) {
+            dayMorningButton.click();
+        }
     }
 
     @Step("Go to the next day")
