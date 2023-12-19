@@ -23,7 +23,7 @@ public class DayWeatherInfo {
     }
 
     public boolean validateTemperature() {
-        // Check if temperature is Celsius
+        // validate the value with temperature in Celsius
         if (!temperature.contains("°")) {
             return false;
         }

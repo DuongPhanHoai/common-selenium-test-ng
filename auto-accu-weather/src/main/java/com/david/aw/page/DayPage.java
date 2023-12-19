@@ -12,6 +12,8 @@ import com.david.aw.dto.DayInfo;
 import com.david.test.core.base.Page;
 import com.david.test.core.element.WElement;
 
+import io.qameta.allure.Step;
+
 public class DayPage extends Page {
     public DayPage(RemoteWebDriver driver) {
         super(driver);
@@ -26,10 +28,12 @@ public class DayPage extends Page {
     @FindBy(xpath = "//*[contains(@class,'daily-forecast-card')]//*[@class='icon']")
     WElement firstDayDetail;
 
+    @Step("Get the Day title")
     public String getTitle() {
         return moduleTitle.getText();
     }
 
+    @Step("Get all day information")
     public List<DayInfo> getAllDayInfos() {
         List<DayInfo> dayInfos = new ArrayList<>();
         List<WebElement> dayElements =
@@ -40,6 +44,7 @@ public class DayPage extends Page {
         return dayInfos;
     }
 
+    @Step("Click to the first day arrow button")
     public void clickFirstDayDetail() {
         firstDayDetail.click();
     }

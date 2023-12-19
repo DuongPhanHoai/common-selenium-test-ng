@@ -86,6 +86,7 @@ public class DayTests extends BaseAWTest {
 
         // 4. Retrieve temperature in Fahrenheit and validate the value with temperature in Celsius.
         // Note: depend on location the temperature can be Fahrenheit of Celsius
+        // validate the value with temperature in Celsius > method validateTemperature()
         for (DayInfo dayInfo : dayInfos) {
             if (Objects.nonNull(dayInfo.getDayWeatherInfos())
                     && dayInfo.getDayWeatherInfos().size() > 0)

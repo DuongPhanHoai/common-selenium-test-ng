@@ -10,6 +10,8 @@ import com.david.aw.dto.DayWeatherInfo;
 import com.david.test.core.base.Page;
 import com.david.test.core.element.WElement;
 
+import io.qameta.allure.Step;
+
 public class DayDetailPage extends Page {
     public DayDetailPage(RemoteWebDriver driver) {
         super(driver);
@@ -69,6 +71,7 @@ public class DayDetailPage extends Page {
                     "//div[contains(@class,'half-day-card ')]//*[@class='quarter-day-ctas']//a[contains(text(),'Evening') or contains(text(),'Overnight')]")
     WElement nightEveningButton;
 
+    @Step("Get day information")
     public List<DayWeatherInfo> getDayInfo() {
         List<DayWeatherInfo> dayWeatherInfos = new ArrayList<DayWeatherInfo>();
         DayWeatherInfo night =
@@ -107,6 +110,7 @@ public class DayDetailPage extends Page {
         return dayWeatherInfos;
     }
 
+    @Step("Go to the next day")
     public String clickNextDay() {
         nextDay.click();
         return shortDate.getText();
