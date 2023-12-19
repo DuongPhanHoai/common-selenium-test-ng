@@ -16,13 +16,24 @@ API Testing
 > Also can set as tamplate to auto gen the template configuration
 2 - Server info is store in resource/[env]/config.properties (env=dev/staging/production)
 
-To run the test, 
+I- To run the test by IDE
 1- plz open this project with IntelliJ
 2- open the module auto-accu-weather
 3- open the class com.david.aw.test.web.DayTests
 4- trigger the test scanAllDays
 
-Run by command line: mvn clean test -pl auto-accu-weather -Dtest=*
+II- Execute by command lines
+- Clean before run: mvn clean install -nsu -DskipTests
+- Command to run regression
+Linux, MACOS: mvn test -pl auto-accu-weather -Denv=production -Dsurefire.suiteXmlFiles=target/classes/suites/regression.xml
+Windows: mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/regression.xml"
+- Quick test to check
+mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/alluretest.xml"
+
+III- Report
+Report store at auto-accu-weather\allure-results
+Run command to generate report: mvn -pl auto-accu-weather allure:report
+Run command to open: mvn -pl auto-accu-weather allure:serve
 
 File detail save in auto-accu-weather/scanAllDays.json
 

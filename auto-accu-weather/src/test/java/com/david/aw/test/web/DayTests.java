@@ -31,7 +31,9 @@ public class DayTests extends BaseAWTest {
     static final String SCAN_ALL_DAYS_JSON = "scanAllDays.json";
     private static final Type REVIEW_TYPE = new TypeToken<List<DayCollection>>() {}.getType();
 
-    @Test(priority = 1)
+    @Test(
+            groups = {"regression", "accuweather"},
+            description = "TC[Demo] Open home > Daily > Collect list > Get detail in list")
     public void scanAllDays() {
         // Declare Pages
         HomePage homePage = new HomePage(driver);

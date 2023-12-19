@@ -14,8 +14,9 @@ tokens
 bin
 gradle
 target
+.allure
+allure-results
 
 mvn clean deploy
 mvn nexus-staging:release
 mvn nexus-staging:drop
-/auto-core-lib/auto-core-lib.iml
