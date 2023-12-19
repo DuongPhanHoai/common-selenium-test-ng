@@ -25,6 +25,7 @@ Windows: mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFil
 mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/alluretest.xml"
 
 File detail save in auto-accu-weather/scanAllDays.json
+Using gson to save file
 
 III- Report
 Report store at auto-accu-weather\allure-results

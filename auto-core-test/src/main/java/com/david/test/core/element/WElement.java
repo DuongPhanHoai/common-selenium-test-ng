@@ -43,11 +43,19 @@ public class WElement extends Element implements WebElement {
         }
     }
 
+    static final int MAX_TRY_CLICK = 5;
+
     @Override
     public void click() {
-        wait.until(ExpectedConditions.elementToBeClickable(findElement())).click();
-        log.info("Click {}", instanceString);
-        TimeUtil.sleep(2);
+        for (int i = 0; i < MAX_TRY_CLICK; i++) {
+            try {
+                wait.until(ExpectedConditions.elementToBeClickable(findElement())).click();
+                log.info("Click {}", instanceString);
+            } catch (Exception e) {
+                log.info("Failed on click {}:", instanceString, e);
+            }
+            TimeUtil.sleep(2);
+        }
     }
 
     @Override
