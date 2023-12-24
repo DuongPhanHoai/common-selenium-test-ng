@@ -58,6 +58,7 @@
         <module>auto-core-lib</module>
         <module>auto-core-test</module>
         <module>auto-accu-weather</module>
+        <module>auto-excel-report</module>
     </modules>
 
     <dependencyManagement>
@@ -70,6 +71,11 @@
             <dependency>
                 <groupId>com.github.duongphanhoai</groupId>
                 <artifactId>auto-core-test</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.duongphanhoai</groupId>
+                <artifactId>auto-excel-report</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -149,6 +155,20 @@
                 <groupId>org.aspectj</groupId>
                 <artifactId>aspectjweaver</artifactId>
                 <version>${aspectj.version}</version>
+            </dependency>
+
+            <!--Import OpenOffice modules-->
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>5.2.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>5.2.5</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

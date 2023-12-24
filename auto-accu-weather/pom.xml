@@ -16,6 +16,10 @@
             <artifactId>auto-core-test</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.github.duongphanhoai</groupId>
+            <artifactId>auto-excel-report</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
         </dependency>
