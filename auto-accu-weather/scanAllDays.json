@@ -7,10 +7,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚29‚°",
+            "dayRealFeel": "RealFeelâ€š29â€šÂ°",
             "humidity": "81%"
           }
         ]
@@ -20,18 +20,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 35‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 35â€šÂ°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚28‚°",
+            "dayRealFeel": "RealFeelâ€š28â€šÂ°",
             "humidity": "78%"
           }
         ]
@@ -41,18 +41,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel‚35‚°\nRealFeel Shade 34‚°",
+            "dayRealFeel": "RealFeelâ€š35â€šÂ°\nRealFeel Shade 34â€šÂ°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "65%"
           }
         ]
@@ -62,18 +62,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34‚°Hi",
+            "temperature": "34â€šÂ°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 36‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 36â€šÂ°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "71%"
           }
         ]
@@ -83,18 +83,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31‚°Hi",
+            "temperature": "31â€šÂ°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel‚33‚°\nRealFeel Shade 33‚°",
+            "dayRealFeel": "RealFeelâ€š33â€šÂ°\nRealFeel Shade 33â€šÂ°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "80%"
           }
         ]
@@ -229,10 +229,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚29‚°",
+            "dayRealFeel": "RealFeelâ€š29â€šÂ°",
             "humidity": "82%"
           }
         ]
@@ -242,18 +242,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 35‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 35â€šÂ°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚28‚°",
+            "dayRealFeel": "RealFeelâ€š28â€šÂ°",
             "humidity": "78%"
           }
         ]
@@ -263,18 +263,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel‚35‚°\nRealFeel Shade 34‚°",
+            "dayRealFeel": "RealFeelâ€š35â€šÂ°\nRealFeel Shade 34â€šÂ°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "65%"
           }
         ]
@@ -284,18 +284,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34‚°Hi",
+            "temperature": "34â€šÂ°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 36‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 36â€šÂ°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "71%"
           }
         ]
@@ -305,18 +305,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31‚°Hi",
+            "temperature": "31â€šÂ°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel‚33‚°\nRealFeel Shade 33‚°",
+            "dayRealFeel": "RealFeelâ€š33â€šÂ°\nRealFeel Shade 33â€šÂ°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "80%"
           }
         ]
@@ -451,10 +451,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚29‚°",
+            "dayRealFeel": "RealFeelâ€š29â€šÂ°",
             "humidity": "77%"
           }
         ]
@@ -464,18 +464,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 35‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 35â€šÂ°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚28‚°",
+            "dayRealFeel": "RealFeelâ€š28â€šÂ°",
             "humidity": "78%"
           }
         ]
@@ -485,18 +485,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel‚35‚°\nRealFeel Shade 34‚°",
+            "dayRealFeel": "RealFeelâ€š35â€šÂ°\nRealFeel Shade 34â€šÂ°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "65%"
           }
         ]
@@ -506,18 +506,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34‚°Hi",
+            "temperature": "34â€šÂ°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 36‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 36â€šÂ°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "71%"
           }
         ]
@@ -527,18 +527,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31‚°Hi",
+            "temperature": "31â€šÂ°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel‚33‚°\nRealFeel Shade 33‚°",
+            "dayRealFeel": "RealFeelâ€š33â€šÂ°\nRealFeel Shade 33â€šÂ°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "80%"
           }
         ]
@@ -673,10 +673,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚29‚°",
+            "dayRealFeel": "RealFeelâ€š29â€šÂ°",
             "humidity": "77%"
           }
         ]
@@ -686,18 +686,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 35‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 35â€šÂ°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚28‚°",
+            "dayRealFeel": "RealFeelâ€š28â€šÂ°",
             "humidity": "78%"
           }
         ]
@@ -707,18 +707,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33‚°Hi",
+            "temperature": "33â€šÂ°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel‚35‚°\nRealFeel Shade 34‚°",
+            "dayRealFeel": "RealFeelâ€š35â€šÂ°\nRealFeel Shade 34â€šÂ°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "65%"
           }
         ]
@@ -728,18 +728,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34‚°Hi",
+            "temperature": "34â€šÂ°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚38‚°\nRealFeel Shade 36‚°",
+            "dayRealFeel": "RealFeelâ€š38â€šÂ°\nRealFeel Shade 36â€šÂ°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25‚°Lo",
+            "temperature": "25â€šÂ°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "71%"
           }
         ]
@@ -749,18 +749,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31‚°Hi",
+            "temperature": "31â€šÂ°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel‚33‚°\nRealFeel Shade 33‚°",
+            "dayRealFeel": "RealFeelâ€š33â€šÂ°\nRealFeel Shade 33â€šÂ°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24‚°Lo",
+            "temperature": "24â€šÂ°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel‚27‚°",
+            "dayRealFeel": "RealFeelâ€š27â€šÂ°",
             "humidity": "80%"
           }
         ]
@@ -895,10 +895,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel29°",
+            "dayRealFeel": "RealFeel29Â°",
             "humidity": "77%"
           }
         ]
@@ -908,18 +908,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33°Hi",
+            "temperature": "33Â°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel38°\nRealFeel Shade„¢ 35°",
+            "dayRealFeel": "RealFeel38Â°\nRealFeel Shadeâ€žÂ¢ 35Â°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel28°",
+            "dayRealFeel": "RealFeel28Â°",
             "humidity": "78%"
           }
         ]
@@ -929,18 +929,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33°Hi",
+            "temperature": "33Â°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel35°\nRealFeel Shade„¢ 34°",
+            "dayRealFeel": "RealFeel35Â°\nRealFeel Shadeâ€žÂ¢ 34Â°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24°Lo",
+            "temperature": "24Â°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "65%"
           }
         ]
@@ -950,18 +950,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34°Hi",
+            "temperature": "34Â°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel38°\nRealFeel Shade„¢ 36°",
+            "dayRealFeel": "RealFeel38Â°\nRealFeel Shadeâ€žÂ¢ 36Â°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "71%"
           }
         ]
@@ -971,18 +971,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31°Hi",
+            "temperature": "31Â°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel33°\nRealFeel Shade„¢ 33°",
+            "dayRealFeel": "RealFeel33Â°\nRealFeel Shadeâ€žÂ¢ 33Â°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24°Lo",
+            "temperature": "24Â°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "80%"
           }
         ]
@@ -1117,10 +1117,10 @@
         "dayWeatherInfos": [
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel28°",
+            "dayRealFeel": "RealFeel28Â°",
             "humidity": "77%"
           }
         ]
@@ -1130,18 +1130,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33°Hi",
+            "temperature": "33Â°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/2.svg",
-            "dayRealFeel": "RealFeel38°\nRealFeel Shade™ 35°",
+            "dayRealFeel": "RealFeel38Â°\nRealFeel Shadeâ„¢ 35Â°",
             "humidity": "68%"
           },
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel28°",
+            "dayRealFeel": "RealFeel28Â°",
             "humidity": "78%"
           }
         ]
@@ -1151,18 +1151,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "33°Hi",
+            "temperature": "33Â°Hi",
             "fahrenheit": 91,
             "weatherStatus": "/images/weathericons/4.svg",
-            "dayRealFeel": "RealFeel35°\nRealFeel Shade™ 34°",
+            "dayRealFeel": "RealFeel35Â°\nRealFeel Shadeâ„¢ 34Â°",
             "humidity": "65%"
           },
           {
             "type": "Night",
-            "temperature": "24°Lo",
+            "temperature": "24Â°Lo",
             "fahrenheit": 75,
             "weatherStatus": "Clear-Cloudy",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "65%"
           }
         ]
@@ -1172,18 +1172,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "34°Hi",
+            "temperature": "34Â°Hi",
             "fahrenheit": 93,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel38°\nRealFeel Shade™ 36°",
+            "dayRealFeel": "RealFeel38Â°\nRealFeel Shadeâ„¢ 36Â°",
             "humidity": "62%"
           },
           {
             "type": "Night",
-            "temperature": "25°Lo",
+            "temperature": "25Â°Lo",
             "fahrenheit": 77,
             "weatherStatus": "/images/weathericons/12.svg",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "71%"
           }
         ]
@@ -1193,18 +1193,18 @@
         "dayWeatherInfos": [
           {
             "type": "Day",
-            "temperature": "31°Hi",
+            "temperature": "31Â°Hi",
             "fahrenheit": 87,
             "weatherStatus": "/images/weathericons/18.svg",
-            "dayRealFeel": "RealFeel33°\nRealFeel Shade™ 33°",
+            "dayRealFeel": "RealFeel33Â°\nRealFeel Shadeâ„¢ 33Â°",
             "humidity": "76%"
           },
           {
             "type": "Night",
-            "temperature": "24°Lo",
+            "temperature": "24Â°Lo",
             "fahrenheit": 75,
             "weatherStatus": "/images/weathericons/40.svg",
-            "dayRealFeel": "RealFeel27°",
+            "dayRealFeel": "RealFeel27Â°",
             "humidity": "80%"
           }
         ]
@@ -1328,6 +1328,236 @@
       },
       {
         "day": "2/1"
+      }
+    ]
+  },
+  {
+    "getTime": 1703412539304,
+    "dayInfos": [
+      {
+        "day": "12/24",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "30°Hi",
+            "fahrenheit": 86,
+            "weatherStatus": "/images/weathericons/16.svg",
+            "dayRealFeel": "RealFeel® 35°\nRealFeel Shade™ 33°",
+            "humidity": "67%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "/images/weathericons/40.svg",
+            "dayRealFeel": "RealFeel® 26°",
+            "humidity": "72%"
+          }
+        ]
+      },
+      {
+        "day": "12/25",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "33°Hi",
+            "fahrenheit": 91,
+            "weatherStatus": "/images/weathericons/17.svg",
+            "dayRealFeel": "RealFeel® 34°\nRealFeel Shade™ 33°",
+            "humidity": "62%"
+          },
+          {
+            "type": "Night",
+            "temperature": "23°Lo",
+            "fahrenheit": 73,
+            "weatherStatus": "/images/weathericons/36.svg",
+            "dayRealFeel": "RealFeel® 23°",
+            "humidity": "66%"
+          }
+        ]
+      },
+      {
+        "day": "12/26",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "34°Hi",
+            "fahrenheit": 93,
+            "weatherStatus": "/images/weathericons/7.svg",
+            "dayRealFeel": "RealFeel® 35°\nRealFeel Shade™ 34°",
+            "humidity": "62%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "/images/weathericons/36.svg",
+            "dayRealFeel": "RealFeel® 26°",
+            "humidity": "70%"
+          }
+        ]
+      },
+      {
+        "day": "12/27",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "33°Hi",
+            "fahrenheit": 91,
+            "weatherStatus": "/images/weathericons/17.svg",
+            "dayRealFeel": "RealFeel® 38°\nRealFeel Shade™ 35°",
+            "humidity": "66%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "Clear-Cloudy",
+            "dayRealFeel": "RealFeel® 28°",
+            "humidity": "75%"
+          }
+        ]
+      },
+      {
+        "day": "12/28",
+        "dayWeatherInfos": [
+          {
+            "type": "Day",
+            "temperature": "34°Hi",
+            "fahrenheit": 93,
+            "weatherStatus": "/images/weathericons/6.svg",
+            "dayRealFeel": "RealFeel® 36°\nRealFeel Shade™ 36°",
+            "humidity": "69%"
+          },
+          {
+            "type": "Night",
+            "temperature": "24°Lo",
+            "fahrenheit": 75,
+            "weatherStatus": "Clear-Cloudy",
+            "dayRealFeel": "RealFeel® 29°",
+            "humidity": "82%"
+          }
+        ]
+      },
+      {
+        "day": "12/29"
+      },
+      {
+        "day": "12/30"
+      },
+      {
+        "day": "12/31"
+      },
+      {
+        "day": "1/1"
+      },
+      {
+        "day": "1/2"
+      },
+      {
+        "day": "1/3"
+      },
+      {
+        "day": "1/4"
+      },
+      {
+        "day": "1/5"
+      },
+      {
+        "day": "1/6"
+      },
+      {
+        "day": "1/7"
+      },
+      {
+        "day": "1/8"
+      },
+      {
+        "day": "1/9"
+      },
+      {
+        "day": "1/10"
+      },
+      {
+        "day": "1/11"
+      },
+      {
+        "day": "1/12"
+      },
+      {
+        "day": "1/13"
+      },
+      {
+        "day": "1/14"
+      },
+      {
+        "day": "1/15"
+      },
+      {
+        "day": "1/16"
+      },
+      {
+        "day": "1/17"
+      },
+      {
+        "day": "1/18"
+      },
+      {
+        "day": "1/19"
+      },
+      {
+        "day": "1/20"
+      },
+      {
+        "day": "1/21"
+      },
+      {
+        "day": "1/22"
+      },
+      {
+        "day": "1/23"
+      },
+      {
+        "day": "1/24"
+      },
+      {
+        "day": "1/25"
+      },
+      {
+        "day": "1/26"
+      },
+      {
+        "day": "1/27"
+      },
+      {
+        "day": "1/28"
+      },
+      {
+        "day": "1/29"
+      },
+      {
+        "day": "1/30"
+      },
+      {
+        "day": "1/31"
+      },
+      {
+        "day": "2/1"
+      },
+      {
+        "day": "2/2"
+      },
+      {
+        "day": "2/3"
+      },
+      {
+        "day": "2/4"
+      },
+      {
+        "day": "2/5"
+      },
+      {
+        "day": "2/6"
       }
     ]
   }

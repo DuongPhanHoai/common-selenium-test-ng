@@ -21,20 +21,27 @@ II- Execute by command lines
 - Command to run regression
 Linux, MACOS: mvn test -pl auto-accu-weather -Denv=production -Dsurefire.suiteXmlFiles=target/classes/suites/regression.xml
 Windows: mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/regression.xml"
-- Quick test to check
-mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/alluretest.xml"
+- Quick test to check history report
+mvn test -pl auto-accu-weather -Denv=production -D"surefire.suiteXmlFiles"="target/classes/suites/history.xml"
 
 File detail save in auto-accu-weather/scanAllDays.json
 Using gson to save file, the limitation appear with special character. Beside the consequence, gson is good lib can merge to object by reflection (mean no need setter methods for the target Class)
 
 III- Report
+1. EXCEL Report
+Store at auto-accu-weather\TestNGResult.xlsx
+
+2. ALLURE (not recommend)
 Report store at auto-accu-weather\allure-results
 Run command to generate report: mvn -pl auto-accu-weather allure:report
 Before open the report, need to generate
 Run command to open: mvn -pl auto-accu-weather allure:serve
 
-Note: to support history report will need to copy manually the history directory from previous report to the current result
-If we have source control we can write some batch to do it automatically
+3. Google sheet (recommend online solution)
+Note: Because I need approval from google on account permission asking windows so has to skip this kind of report
+Will try to have in the future after renew my Consent Security with google to have permission to modify the google sheet
+However with the limitation of free account so it limit to some access per minutes so we cannot use this kins of report fpr API test
+Sample canbe found at: https://docs.google.com/spreadsheets/d/1zKJ9lYqvJeNOdu2UX9ZOC3-vnn51sddkeJUs7Mvs-5s/edit#gid=282550025
 
 VI- Note
 For faster I put MAX_GET_DAYS = 5 to limit getting max 5 first to save running time demo
